@@ -1,0 +1,298 @@
+body {
+    background-image: url('img/fon3.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.95;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+/* Background image styles */
+.background {
+    background-image: url('fon2.jpg');
+    background-size: cover;
+    opacity: 0.95;
+    height: 100vh;
+}
+/* Navbar styles */
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Прозрачный белый цвет */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень */
+  }
+  
+  .navigation img {
+    width: 50px; /* Размер логотипа */
+  }
+  
+  .nav-buttons button,
+  .login-buttons button {
+    font-family: Arial, sans-serif; /* Выбор шрифта */
+    padding: 8px 12px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db; /* Цвет кнопок */
+    color: white;
+    cursor: pointer;
+  }
+  
+  .login-buttons button {
+    background-color: #e74c3c; /* Цвет кнопок входа */
+  }
+  .slider-container {
+    width: 65vw; /* Уменьшаем ширину слайдера до 65% от ширины экрана */
+    height: 65vh; /* Высота слайдера 50% от высоты экрана */
+    position: relative;
+    overflow: hidden; /* Скрытие части изображений, выходящих за границы */
+    margin: 20px auto; /* Добавляем отступ сверху и снизу, а также центрируем слайдер по горизонтали */
+}
+
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    width: 100%;
+    height: 100%; /* Устанавливаем высоту слайда на 100% */
+    object-fit: cover; /* Масштабируем изображение так, чтобы оно полностью заполняло контейнер без искажения пропорций */
+}
+
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    color: black;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+  
+  .prev-btn,
+  .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-75%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+  }
+  
+  .prev-btn {
+    left: 0;
+  }
+  
+  .next-btn {
+    right: 0;
+  }
+
+  .title-container {
+    width: 40%; /* Уменьшаем ширину контейнера */
+    margin: 10px auto; /* Уменьшаем отступы */
+    padding: 10px; /* Уменьшаем отступы */
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+.title {
+    font-family: 'Arial', sans-serif;
+    font-size: 18px; /* Уменьшил размер шрифта */
+    font-weight: bold;
+    color: #333;
+}
+
+.description {
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* кнопка начать читать */
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* Регулируйте отступ сверху, как вам нужно */
+}
+
+.read-button {
+  background-color: rgba(0, 0, 0, 0.5); /* Немного прозрачный фон */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px; /* Закругленные углы */
+  font-size: 16px;
+}
+
+.read-button:hover {
+  background-color: rgba(0, 0, 0, 0.7); /* Цвет фона при наведении */
+}
+
+.login-buttons {
+  margin-top: 20px;
+}
+
+.login-buttons button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.login-buttons button:hover {
+  background-color: #45a049;
+}
+
+/* Стили для модального окна */
+.login-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.login-modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* Стили для формы регистрации */
+/* Стили для модального окна */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  text-align: center; /* Располагаем содержимое модального окна по центру */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Стили для форм входа и регистрации */
+.login-form,
+.register-form {
+  display: none;
+  text-align: center; /* Располагаем элементы по центру*/
+}
+
+
+.login-form input,
+.register-form input,
+.login-form button,
+.register-form button {
+  width: 80%; /* Уменьшаем ширину полей ввода и кнопок */
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.login-form button,
+.register-form button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 50%; /* Уменьшаем ширину кнопок */
+}
+
+.login-form button:hover,
+.register-form button:hover {
+  background-color: #45a049;
+}
+
+/* Дополнительные стили для формы регистрации */
+.register-form {
+  display: none;
+}
+
+
+
+
+.login-form p a:hover {
+  text-decoration: underline;
+}
+
+/* Стили для ссылки "Зарегистрируйтесь" */
+.register-link {
+  text-align: center;
+}
+
+.register-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* Медиа-запрос для устройств с шириной экрана до 768px (например, планшетов и мобильных устройств) */
+@media (max-width: 768px) {
+  .logo img,
+  .login-buttons button {
+      max-width: 50%; /* Уменьшаем максимальную ширину до 50% для лучшей адаптивности на маленьких экранах */
+  }
+}
