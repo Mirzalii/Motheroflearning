@@ -1,0 +1,53 @@
+.container {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+  }
+  .profile-pic {
+    display: inline-block;
+    margin-top: 20px;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .profile-pic::after {
+    content: '✏️';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+  }
+  .user-info {
+    margin-top: 20px;
+  }
+  .user-info div {
+    margin-bottom: 10px;
+  }
+  .edit-icon {
+    display: inline-block;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  .hidden-password {
+    display: inline-block;
+    width: 120px;
+    background-color: #eaeaea;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  .button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
