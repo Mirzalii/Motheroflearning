@@ -5,7 +5,6 @@ session_start();
 require_once 'config.php';
 require_once 'database.php';
 
-
 // Проверяем, есть ли информация о вошедшем пользователе
 if (isset($_SESSION['username'])) {
     // Пользователь вошел в систему
@@ -24,7 +23,8 @@ if (isset($_SESSION['username'])) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Главная страница</title>
 <link rel="stylesheet" href="styles.css">
-<script src="script.js" defer></script>
+
+
 </head>
 <body>
 
@@ -46,60 +46,50 @@ if (isset($_SESSION['username'])) {
     </a>
   <?php else: ?>
     <button id="loginBtn">Войти</button>
-    <button id="registerBtn">Зарегистрироваться</button>
+<button id="registerBtn">Зарегистрироваться</button>
+
   <?php endif; ?>
   </div>
 </nav>
 
-<!-- Модальное окно личного кабинета -->
-<div id="userProfileModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <form id="userProfileForm" method="post">
-      <label for="new_username">Новое имя пользователя:</label>
-      <input type="text" id="new_username" name="new_username" required>
-      <label for="new_password">Новый пароль:</label>
-      <input type="password" id="new_password" name="new_password" required>
-      <input type="submit" name="updateProfile" value="Обновить профиль">
-      <input type="submit" name="logout" value="Выйти из аккаунта">
-    </form>
-    </div>
-</div>
-
-  </div>
-</div>
 
 
-<!-- Модальное окно регистрации -->
-<div id="registerModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <form id="registerForm" method="post" action="register.php">
-        <label for="username">Имя пользователя:</label>
-      <input type="text" id="username" name="username" required>
-      <label for="password">Пароль:</label>
-      <input type="password" id="password" name="password" required>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email">
-      <input type="submit" value="Зарегистрироваться">
-        </form>
-    </div>
-</div>
+
+
 
 <!-- Модальное окно входа -->
 <div id="loginModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <form id="loginForm" method="post" action="login.php">
-      <label for="loginUsername">Имя пользователя:</label>
+  <div class="modal-content">
+
+    <h2>Вход</h2>
+    <!-- Форма входа -->
+    <form id="loginForm" method="post" action="login.php">
+    <p> <label for="loginUsername">Имя пользователя:</label></p> 
       <input type="text" id="loginUsername" name="username" required>
-      <label for="loginPassword">Пароль:</label>
+      <p><label for="loginPassword">Пароль:</label></p>
       <input type="password" id="loginPassword" name="password" required>
       <input type="submit" value="Войти">
-        </form>
-    </div>
+    </form>
+  </div>
 </div>
 
+<!-- Модальное окно регистрации -->
+<div id="registerModal" class="modal">
+  <div class="modal-content">
+
+    <h2>Регистрация</h2>
+    <!-- Форма регистрации -->
+    <form id="registerForm" method="post" action="register.php">
+    <label for="username"><p>Имя пользователя:</p> </label>
+      <input type="text" id="username" name="username" required>
+     <p><label for="password">Пароль:</label></p> 
+      <input type="password" id="password" name="password" required>
+      <p><label for="email">Email:</label></p> 
+      <input type="email" id="email" name="email">
+      <input type="submit" value="Зарегистрироваться">
+        </form>
+  </div>
+</div>
 
 
 
@@ -209,10 +199,93 @@ if (isset($_SESSION['username'])) {
 
 <!-- Footer -->
 <footer>
-  <p>Телефон: +7 (123) 456-78-90</p>
-  <p>Email: info@example.com</p>
-  <p>Адрес: г. Алматы, ул. Пример, д. 1</p>
+  <p>Телефон: +7 (708) 379-31-01</p>
+  <p>Email: sharuevvv@gmail.com</p>
+  <p>Адрес: г. Алматы, ул. Жандосова 65</p>
 </footer>
 
+
+
+<script>
+
+// JavaScript
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("slide");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  slides[slideIndex-1].style.display = "block";
+}
+
+document.getElementById('imageSlider').addEventListener('click', function(e) {
+  let rect = e.target.getBoundingClientRect();
+  let x = e.clientX - rect.left;
+  if (x < rect.width / 2) {
+    // Левая половина слайда
+    plusSlides(-1);
+  } else {
+    // Правая половина слайда
+    plusSlides(1);
+  }
+});
+
+
+
+
+
+
+
+
+
+// Получение модальных окон
+var loginModal = document.getElementById('loginModal');
+var registerModal = document.getElementById('registerModal');
+
+// Получение кнопок, которые открывают модальные окна
+var loginBtn = document.getElementById('loginBtn');
+var registerBtn = document.getElementById('registerBtn');
+
+
+
+// Открытие модального окна входа
+loginBtn.onclick = function() {
+  loginModal.style.display = 'block';
+}
+
+// Открытие модального окна регистрации
+registerBtn.onclick = function() {
+  registerModal.style.display = 'block';
+}
+
+// Закрытие модального окна при нажатии вне его области
+window.onclick = function(event) {
+  if (event.target == registerModal) {
+    loginModal.style.display = 'none';
+    registerModal.style.display = 'none';
+  }
+}
+
+// Закрытие модального окна при нажатии вне его области
+window.onclick = function(event) {
+  if (event.target == loginModal || event.target == registerModal) {
+    loginModal.style.display = 'none';
+    registerModal.style.display = 'none';
+  }
+}
+</script>
 </body>
 </html>

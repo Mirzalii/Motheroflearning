@@ -1,42 +1,6 @@
-// JavaScript
-let slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("slide");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  slides[slideIndex-1].style.display = "block";
-}
-
-document.getElementById('imageSlider').addEventListener('click', function(e) {
-  let rect = e.target.getBoundingClientRect();
-  let x = e.clientX - rect.left;
-  if (x < rect.width / 2) {
-    // Левая половина слайда
-    plusSlides(-1);
-  } else {
-    // Правая половина слайда
-    plusSlides(1);
-  }
-});
 
 
-
-// JavaScript
-// Получение модального окна
+// Получение модальных окон
 var loginModal = document.getElementById('loginModal');
 var registerModal = document.getElementById('registerModal');
 
@@ -72,18 +36,4 @@ window.onclick = function(event) {
     registerModal.style.display = 'none';
   }
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-  var userProfileButton = document.getElementById('userProfileButton');
-  var userProfileModal = document.getElementById('userProfileModal');
-
-  if (userProfileButton) {
-    userProfileButton.addEventListener('click', function() {
-      userProfileModal.style.display = 'block';
-    });
-  }
-
-  // Код для закрытия модального окна
-  // ...
-});
 

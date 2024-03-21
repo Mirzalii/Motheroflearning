@@ -1,40 +1,38 @@
 <?php
-session_start(); // Начинаем сессию
+// Файл login.php
+session_start(); // Начало сессии
 
-// Проверяем, была ли отправлена форма
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Подключаемся к базе данных
-    $db = new mysqli('localhost', 'root', '', 'mofl');
+  // Подключение к базе данных
+  $db = new mysqli('localhost', 'root', '', 'mofl');
 
-    // Проверяем подключение
-    if ($db->connect_error) {
-        die("Connection failed: " . $db->connect_error);
-    }
+  // Проверка подключения
+  if ($db->connect_error) {
+    die("Connection failed: " . $db->connect_error);
+  }
 
-    // Получаем данные из формы
-    $username = $db->real_escape_string($_POST['username']);
-    $password = $_POST['password'];
+  // Получение данных из формы
+  $username = $db->real_escape_string($_POST['username']);
+  $password = $_POST['password'];
 
-    // Подготавливаем SQL запрос для выборки данных пользователя
-    $query = "SELECT id, password FROM users WHERE username = '$username'";
+  // Проверка учетных данных пользователя
+  $query = "SELECT id, password FROM users WHERE username = '$username'";
+  $result = $db->query($query);
 
-    // Выполняем запрос и проверяем результат
-    $result = $db->query($query);
-    if ($result->num_rows > 0) {
-        $user = $result->fetch_assoc();
-        if (password_verify($password, $user['password'])) {
-            // Устанавливаем данные пользователя в сессию
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $username;
-            header("Location: index.php"); // Перенаправляем на страницу приветствия
-        } else {
-            echo "Неверный пароль!";
-        }
+  if ($result->num_rows > 0) {
+    $user = $result->fetch_assoc();
+    if (password_verify($password, $user['password'])) {
+      // Установка данных пользователя в сессию
+      $_SESSION['user_id'] = $user['id'];
+      $_SESSION['username'] = $username;
+      header("Location: index.php"); // Перенаправление на страницу приветствия
     } else {
-        echo "Пользователь не найден!";
+      echo "Неверный пароль!";
     }
+  } else {
+    echo "Пользователь не найден!";
+  }
 
-    // Закрываем соединение
-    $db->close();
+  $db->close();
 }
 ?>

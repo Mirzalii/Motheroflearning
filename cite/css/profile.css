@@ -1,53 +1,69 @@
-.container {
-    width: 50%;
-    margin: auto;
-    text-align: center;
-  }
-  .profile-pic {
-    display: inline-block;
-    margin-top: 20px;
-    position: relative;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  .profile-pic::after {
-    content: '✏️';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-color: white;
-    border-radius: 50%;
-    padding: 5px;
-    cursor: pointer;
-  }
-  .user-info {
-    margin-top: 20px;
-  }
-  .user-info div {
-    margin-bottom: 10px;
-  }
-  .edit-icon {
-    display: inline-block;
-    margin-left: 10px;
-    cursor: pointer;
-  }
-  .hidden-password {
-    display: inline-block;
-    width: 120px;
-    background-color: #eaeaea;
-    border-radius: 5px;
-    padding: 5px;
-  }
-  .button {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+font-family: Arial, sans-serif;
+background-image: url('img/fon3.jfif');
+background-size: cover; /* Покрытие всего экрана изображением */
+background-repeat: no-repeat; /* Без повторения изображения */
+background-position: center center; /* Центрирование изображения */
+text-decoration: none ;
+}
+.profile {
+  width: 50%;
+  height: 50vh;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0.7); 
+
+}
+
+.profile ul  {
+  padding: 0px;
+
+  
+}
+.profile img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+.profile h1 {
+  margin: 0;
+  color: #fff;
+}
+.profile p {
+  margin: 5px 0;
+  color: #fff;
+}
+.profile input[type="submit"] {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.profile input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+.profile a {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.profile a:hover {
+  background-color: #0056b3;
+}

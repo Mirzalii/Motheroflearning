@@ -1,11 +1,14 @@
 <?php
-require_once 'config.php';
+$host = 'localhost';
+$db   = 'mofl';
+$user = 'root'; // ваше имя пользователя для базы данных
+$pass = ''; // ваш пароль для базы данных
+$charset = 'utf8mb4';
 
-// Попытка подключения к базе данных MySQL
-$conn = new mysqli('localhost', 'root', '', 'mofl');
-
-// Проверка подключения
-if($conn->connect_error){
-    die("ERROR: Не удалось подключиться. " . $conn->connect_error);
-}
-?>
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+];
+$pdo = new PDO($dsn, $user, $pass, $options);

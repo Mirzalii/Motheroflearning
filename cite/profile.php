@@ -21,6 +21,16 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
+// Обработка нажатия кнопки выхода
+if (isset($_POST['logout'])) {
+    // Завершение сессии
+    session_destroy();
+
+    // Перенаправление на страницу входа
+    header('Location: index.php');
+    exit;
+}
+
 // Получение данных пользователя
 $user_id = $_SESSION['user_id'];
 $query = "SELECT username, email, profile_pic FROM users WHERE id = ?";
@@ -34,21 +44,38 @@ $user = $result->fetch_assoc();
 $stmt->close();
 $conn->close();
 ?>
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Профиль пользователя</title>
+    <link rel="stylesheet" href="css/profile.css">
 </head>
 <body>
-    <h1>Профиль пользователя</h1>
-    <p>Имя пользователя: <?php echo htmlspecialchars($user['username']); ?></p>
-    <p>Электронная почта: <?php echo htmlspecialchars($user['email']); ?></p>
-    <p>Фото профиля:</p>
-    <?php if ($user['profile_pic']): ?>
-        <img src="<?php echo htmlspecialchars($user['profile_pic']); ?>" alt="Фото профиля">
-    <?php endif; ?>
-    <a href="profile_edit.php">Редактировать профиль</a>
+    <div class="profile">
+        <ul>
+            <li>
+            <img src="<?php echo htmlspecialchars($user['profile_pic']); ?>" alt="Фото профиля">  
+            </li>
+            <li>
+            <h1><?php echo htmlspecialchars($user['username']); ?></h1>   
+            </li>
+            <li>
+            <p><?php echo htmlspecialchars($user['email']); ?></p>
+            </li>
+            <li>
+            <a href="profile_edit.php">Редактировать профиль</a>
+            </li>
+            <li>
+            <a href="index.php">Главная страница</a>
+            </li>
+            <li>
+        <!-- Форма выхода -->
+        <form method="post">
+        <input type="submit" name="logout" value="Выйти">
+        </form>
+            </li>
+        </ul>
+    </div>
 </body>
 </html>

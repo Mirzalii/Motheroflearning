@@ -42,9 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if (move_uploaded_file($_FILES['profile_pic']['tmp_name'], $uploadFile)) {
             // Файл успешно загружен, обновляем профиль пользователя
-            $stmt = $conn->prepare("UPDATE users SET profile_pic = ? WHERE id = ?");
-            $stmt->bind_param("si", $fileName, $user_id);
-            $stmt->execute();
+            $stmt = $pdo->prepare("UPDATE users SET profile_pic = ? WHERE id = ?");
+            $stmt->execute([$fileName, $user_id]);
 
             // Перенаправление на страницу профиля или вывод сообщения об успехе
             // header('Location: profile.php');
@@ -60,3 +59,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     exit;
 }
 ?>
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование профиля</title>
+</head>
+<body>
+    <h1>Редактирование профиля</h1>
+    <form action="profile_edit.php" method="post" enctype="multipart/form-data">
+        <label for="username">Имя пользователя:</label>
+        <input type="text" id="username" name="username" value="<?php echo htmlspecialchars($user['username']); ?>"><br>
+
+        <label for="email">Электронная почта:</label>
+        <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($user['email']); ?>"><br>
+
+        <label for="password">Новый пароль (оставьте пустым, если не хотите менять):</label>
+        <input type="password" id="password" name="password"><br>
+
+        <label for="profile_pic">Фото профиля (оставьте пустым, если не хотите менять):</label>
+        <input type="file" id="profile_pic" name="profile_pic"><br>
+
+        <input type="submit" value="Сохранить изменения">
+    </form>
+</body>
+</html>
