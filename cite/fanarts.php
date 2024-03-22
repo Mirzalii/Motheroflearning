@@ -31,19 +31,16 @@ if ($loggedIn) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Главная страница</title>
-<link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/main.css">
-
-
+<link rel="stylesheet" href="css/fanarts.css">
 </head>
 <body>
-
 <!-- Навигационная панель -->
 <nav id="navbar">
     <a href="index.html" id="logo"><img src="logo.png" alt="Логотип"></a>
     <div id="menu">
+       <a href="index.php">Главная страница</a>
       <a href="read.php">Начать читать</a>
-      <a href="fanarts.php">Фан арты</a>
     </div>
     <div id="auth">
     <?php if ($loggedIn): ?>
@@ -56,15 +53,9 @@ if ($loggedIn) {
   <?php else: ?>
     <button id="loginBtn">Войти</button>
 <button id="registerBtn">Зарегистрироваться</button>
-
   <?php endif; ?>
   </div>
 </nav>
-
-
-
-
-
 
 <!-- Модальное окно входа -->
 <div id="loginModal" class="modal">
@@ -104,94 +95,29 @@ if ($loggedIn) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<!-- HTML -->
-<div id="imageSlider" class="slider">
-      <img src="img/slide1.png" alt="Slide 1" class="slide">
-      <img src="img/slide22.png" alt="Slide 2" class="slide">
-      <!-- <img src="img/slide3.png" alt="Slide 3" class="slide">
-      <img src="img/slayder1.jpg" alt="Slide 4" class="slide">
-      <img src="img/slayder1.jpg" alt="Slide 5" class="slide">
-      <img src="img/fon3.jpg" alt="Slide 6" class="slide"> -->
-    <a class="prev" onclick="moveSlide(-1)">❮</a>
-    <a class="next" onclick="moveSlide(1)">❯</a>
-  </div>
-  
-  <!-- HTML -->
-<div id="titleContainer">
-    <h1 id="mainTitle"><p class="mol">Mother of Learning</p></h1>
-  </div>
-  
-
-
-<!-- Блок с описанием ранобэ -->
-<div id="descriptionBlock">
-    <div class="coverImage">
-      <img src="img/ranobe.jpg" alt="Обложка ранобэ">
-      <a href="read.php" class="readButton">Начать читать</a>
-      <ul class="ranobeInfo">
-        <li><p>Тип: Английский</p></li>
-        <li><p>Год релиза: 2011</p></li>
-        <li><p>Статус тайтла: Завершён</p></li>
-        <li><p>Статус перевода: Завершен</p></li>
-        <li><p>Автор: nobody103</p></li>
-        <li><p>Загружено глав: 109</p></li>
-      </ul>
-    </div>
-    <div class="descriptionContent">
-      <h1 id="description">Мать Ученья</h1>
-    <p>
-        Зориан — юный маг скромного происхождения, обладающий навыками чуть выше среднего.
-    </p>
-    <p>
-        Студент третьего года обучения в магической академии Сиории.
-    </p>
-    <p>
-        Он целеустремлённый, но раздражительный молодой человек, охваченный желанием обеспечить свое собственное будущее и освободиться от влияния своей семьи, которую он недолюбливает за то, что она предпочитает его братьям.
-    </p>
-    <p>
-        Следовательно, у него нет времени на бессмысленные развлечения или внимание к чужим проблемам.
-    </p>
-    <p>
-        Так уж вышло, что времени у него будет предостаточно.
-    </p>
-    <p>
-        Накануне ежегодного летнего фестиваля в Сиории его убивают и возвращают в начало месяца, как раз перед тем, как он собирался сесть на поезд в Сиорию.
-    </p>
-    <p>
-        Внезапно оказавшись в ловушке временной петли без четкого конца или выхода, Зориану придётся заглянуть как внутрь, так и вовне, чтобы разгадать тайну перед ним.
-    </p>
-    <p>
-        Он вынужден разгадать ее, ибо временная петля не была сделана ради него, а опасности таятся повсюду…
-    </p>
-    <p>  
-        Повторение — мать учения, но Зориану сначала нужно убедиться, что он выживет, чтобы попытаться снова — в мире магии даже путешественник во времени не застрахован от тех, кто желает ему зла.</p>
-    </p>
-  </div>
-</div>
-
 <!-- Блок с фан артами -->
 
 <div id="fanArtBlock">
   <h2 class="fanArtTitle">Фан Арты</h2>
+  
+
+  <?php if ($loggedIn): ?>
+    <!-- Кнопка для открытия модального окна доступна только авторизированным пользователям -->
+    <button id="myBtn">Добавить</button>
+    <!-- Модальное окно -->
+    <div id="myModal" class="modal">
+      <!-- Контент модального окна -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+          <input type="file" name="fileToUpload" id="fileToUpload">
+          <input type="submit" value="Загрузить Изображение" name="submit">
+        </form>
+      </div>
+    </div>
+  <?php else: ?>
+    <p>Для добавления изображений необходимо войти.</p>
+  <?php endif; ?>
   <div class="fanArtImages">
   <?php
  // Подключение к базе данных
@@ -209,7 +135,7 @@ if ($conn->connect_error) {
 }
 
 // SQL-запрос для выбора 8 случайных изображений
-$sql = "SELECT img FROM fanarts ORDER BY RAND() LIMIT 8";
+$sql = "SELECT img FROM fanarts ORDER BY RAND() LIMIT 100";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -224,7 +150,6 @@ $conn->close();
 ?>
 
   </div>
-  <a href="fanarts.php" class="moreButton">Ещё ▼</a>
 </div>
 
 
@@ -237,63 +162,16 @@ $conn->close();
   <p>Email: sharuevvv@gmail.com</p>
   <p>Адрес: г. Алматы, ул. Жандосова 65</p>
 </footer>
-
-
-
 <script>
-
-// JavaScript
-let slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("slide");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  slides[slideIndex-1].style.display = "block";
-}
-
-document.getElementById('imageSlider').addEventListener('click', function(e) {
-  let rect = e.target.getBoundingClientRect();
-  let x = e.clientX - rect.left;
-  if (x < rect.width / 2) {
-    // Левая половина слайда
-    plusSlides(-1);
-  } else {
-    // Правая половина слайда
-    plusSlides(1);
-  }
-});
-
-
-
-
-
-
-
-
 
 // Получение модальных окон
 var loginModal = document.getElementById('loginModal');
 var registerModal = document.getElementById('registerModal');
-
+var modal = document.getElementById("myModal");
 // Получение кнопок, которые открывают модальные окна
 var loginBtn = document.getElementById('loginBtn');
 var registerBtn = document.getElementById('registerBtn');
-
-
+var btn = document.getElementById("myBtn");
 
 // Открытие модального окна входа
 loginBtn.onclick = function() {
@@ -304,6 +182,14 @@ loginBtn.onclick = function() {
 registerBtn.onclick = function() {
   registerModal.style.display = 'block';
 }
+
+
+btn.onclick = function() {
+  modal.style.display = "block"
+}
+
+
+
 
 // Закрытие модального окна при нажатии вне его области
 window.onclick = function(event) {
@@ -319,7 +205,15 @@ window.onclick = function(event) {
     loginModal.style.display = 'none';
     registerModal.style.display = 'none';
   }
+
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 }
 </script>
+
+
 </body>
 </html>

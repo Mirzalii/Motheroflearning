@@ -1,0 +1,56 @@
+
+.add-chapter {
+    width: 50%;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+.add-chapter h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.add-chapter-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Выравнивание элементов по центру */
+    text-align: center;
+}
+
+.add-chapter-content label {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.add-chapter-content input[type="text"],
+.add-chapter-content textarea {
+    color: #fff;
+            width: 80%; /* Уменьшение ширины полей ввода */
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 10px; /* Закругленные углы рамки */
+            background-color: rgba(0, 0, 0, 0.3); /* Небольшая прозрачность */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень для добавления глубины */
+}
+
+.add-chapter-content input[type="submit"] {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    right: 20px; /* Отступ справа */
+    bottom: 20px; /* Отступ снизу */
+}
+
+.add-chapter-content input[type="submit"]:hover {
+    background-color: #0056b3; 
+}

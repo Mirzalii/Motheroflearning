@@ -1,0 +1,157 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('img/fon3.jfif');
+    background-size: cover; /* Покрытие всего экрана изображением */
+    background-repeat: no-repeat; /* Без повторения изображения */
+    background-position: center center; /* Центрирование изображения */
+  }
+  
+    
+    #navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(50, 50, 50, 0.8);
+      padding: 10px 20px;
+      border-radius: 10px;
+      margin-bottom: 35px;
+    }
+    
+    #navbar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    
+    #navbar #logo img {
+      height: 50px;
+    }
+    
+    #navbar #menu a {
+      transition: color 0.3s ease;
+    }
+    
+    #navbar #menu a:hover {
+      color: #f0f0f0;
+    }
+    
+    #auth button {
+      padding: 10px 20px;
+      margin-left: 10px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    #auth button:hover {
+      background-color: #555;
+    }
+  
+    
+    .modal {
+      display: none; 
+      position: fixed; 
+      z-index: 1; 
+      left: 0;
+      top: 0;
+      width: 100%; 
+      height: 100%; 
+      overflow: auto; 
+      background-color: rgba(0,0,0,0.4); 
+  }
+  
+  /* Стили для контента модального окна */
+  .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto; 
+      padding: 20px;
+      border: 1px solid #888;
+      width: 30%; 
+      text-align: center; /* Выравнивание элементов по центру */
+      display: flex; /* Использование flexbox */
+      flex-direction: column; /* Расположение элементов в виде списка */
+      align-items: center; /* Выравнивание элементов по центру */
+      border-radius: 10px; /* Закругленные углы рамки */
+      background-color: rgba(0, 0, 0, 0.6); /* Небольшая прозрачность */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень для добавления глубины */
+  }
+  .modal-content input{
+    color: #fff;
+  }
+  .modal-content label{
+    color: #fff;
+  }
+  .modal-content h2{
+    color: #fff;
+  }
+  
+  /* Стили для полей ввода */
+  .modal-content input[type="text"],
+  .modal-content input[type="password"],
+  .modal-content input[type="email"]
+    {
+      width: 80%; /* Уменьшение ширины полей ввода */
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      border-radius: 10px; /* Закругленные углы рамки */
+      background-color: rgba(0, 0, 0, 0.3); /* Небольшая прозрачность */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень для добавления глубины */
+  }
+  
+  /* Стили для кнопки отправки */
+  .modal-content input[type="submit"] {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  .modal-content input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  
+  
+  /* Добавьте этот CSS в ваш файл стилей */
+  #userProfileLink {
+    color: inherit; /* Цвет текста такой же, как у остального текста в навигации */
+    background-color: transparent; /* Фон прозрачный */
+  }
+  
+  #profilePicContainer {
+    width: 30px; /* Установите фиксированный размер для изображения, чтобы оно было круглым */
+    height: 30px; /* Установите фиксированный размер для изображения, чтобы оно было круглым */
+    overflow: hidden; /* Скрывает части изображения, выходящие за пределы круга */
+  }
+  
+  #userProfileLink img {
+    display: block; /* Убирает лишние отступы вокруг изображения */
+    width: 100%; /* Заставляет изображение заполнять контейнер */
+    height: auto; /* Поддерживает пропорции изображения */
+  }
+  
+  #username {
+    font-size: 1em; /* Размер шрифта для имени пользователя */
+  }
+  
+
+  footer {
+    background-color: #070707;
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.9); /* Небольшая прозрачность */
+    margin-top: 20px;
+  
+  }
+footer p{
+    color: #fff;
+  }
