@@ -53,29 +53,29 @@ $conn->close();
 </head>
 <body>
     <div class="profile">
-        <ul>
-            <li>
+
+            <div>
             <img src="<?php echo htmlspecialchars($user['profile_pic']); ?>" alt="Фото профиля">  
-            </li>
-            <li>
+</div>
+            <div>
             <h1><?php echo htmlspecialchars($user['username']); ?></h1>   
-            </li>
-            <li>
+</div>
+            <div>
             <p><?php echo htmlspecialchars($user['email']); ?></p>
-            </li>
-            <li>
+</div>
+            <div>
             <a href="profile_edit.php">Редактировать профиль</a>
-            </li>
-            <li>
+</div>
+            <div>
             <a href="index.php">Главная страница</a>
-            </li>
-            <li>
+</div>
+            <div>
         <!-- Форма выхода -->
         <form method="post">
         <input type="submit" name="logout" value="Выйти">
         </form>
-            </li>
-        </ul>
+</div>
+
     </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
     display: flex;
     width: 88%;
     margin: auto;
-    background-color: rgba(0, 0, 0, 0.9); /* Небольшая прозрачность */
+    background-color: rgba(0, 0, 0, 0.7); /* Небольшая прозрачность */
     border-radius: 15px; /* Закругленные края */
     padding: 20px;
     box-sizing: border-box;

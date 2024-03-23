@@ -37,16 +37,16 @@ if ($loggedIn) {
 <body>
 <!-- Навигационная панель -->
 <nav id="navbar">
-    <a href="index.html" id="logo"><img src="logo.png" alt="Логотип"></a>
+    <a href="index.html" id="logo">Mother of Learning</a>
     <div id="menu">
        <a href="index.php">Главная страница</a>
       <a href="read.php">Начать читать</a>
     </div>
     <div id="auth">
     <?php if ($loggedIn): ?>
-    <a href="profile.php" id="userProfileLink" style="display: flex; align-items: center; width: 6%; height: 5%; text-decoration: none;">
-      <div id="profilePicContainer" style="flex-shrink: 0;">
-        <img src="<?php echo $profilePic ?? 'img/slide1.jfif'; ?>" alt="Profile Picture" style="width: 100%; height: auto; border-radius: 50%;">
+    <a href="profile.php" id="userProfileLink">
+      <div id="profilePicContainer" >
+        <img src="<?php echo $profilePic ?? 'img/slide1.jfif'; ?>" alt="Profile Picture" >
       </div>
       <span id="username" style="margin-left: 10px;"><?php echo htmlspecialchars($username); ?></span>
     </a>
@@ -56,6 +56,18 @@ if ($loggedIn) {
   <?php endif; ?>
   </div>
 </nav>
+
+<!-- Модальное окно -->
+<div id="myModal" class="modal">
+      <!-- Контент модального окна -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+          <input type="file" name="fileToUpload" id="fileToUpload">
+          <input type="submit" value="Загрузить Изображение" name="submit">
+        </form>
+      </div>
+    </div>
 
 <!-- Модальное окно входа -->
 <div id="loginModal" class="modal">
@@ -104,17 +116,7 @@ if ($loggedIn) {
   <?php if ($loggedIn): ?>
     <!-- Кнопка для открытия модального окна доступна только авторизированным пользователям -->
     <button id="myBtn">Добавить</button>
-    <!-- Модальное окно -->
-    <div id="myModal" class="modal">
-      <!-- Контент модального окна -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <form action="upload.php" method="post" enctype="multipart/form-data">
-          <input type="file" name="fileToUpload" id="fileToUpload">
-          <input type="submit" value="Загрузить Изображение" name="submit">
-        </form>
-      </div>
-    </div>
+    
   <?php else: ?>
     <p>Для добавления изображений необходимо войти.</p>
   <?php endif; ?>
@@ -162,57 +164,31 @@ $conn->close();
   <p>Email: sharuevvv@gmail.com</p>
   <p>Адрес: г. Алматы, ул. Жандосова 65</p>
 </footer>
+
 <script>
 
-// Получение модальных окон
-var loginModal = document.getElementById('loginModal');
-var registerModal = document.getElementById('registerModal');
 var modal = document.getElementById("myModal");
+
+
 // Получение кнопок, которые открывают модальные окна
-var loginBtn = document.getElementById('loginBtn');
-var registerBtn = document.getElementById('registerBtn');
 var btn = document.getElementById("myBtn");
 
-// Открытие модального окна входа
-loginBtn.onclick = function() {
-  loginModal.style.display = 'block';
-}
-
-// Открытие модального окна регистрации
-registerBtn.onclick = function() {
-  registerModal.style.display = 'block';
-}
-
-
+// Открытие модального окна при нажатии на кнопку
 btn.onclick = function() {
-  modal.style.display = "block"
+  modal.style.display = "block";
 }
-
-
 
 
 // Закрытие модального окна при нажатии вне его области
-window.onclick = function(event) {
-  if (event.target == registerModal) {
-    loginModal.style.display = 'none';
-    registerModal.style.display = 'none';
-  }
-}
-
-// Закрытие модального окна при нажатии вне его области
-window.onclick = function(event) {
-  if (event.target == loginModal || event.target == registerModal) {
-    loginModal.style.display = 'none';
-    registerModal.style.display = 'none';
-  }
-
-}
-window.onclick = function(event) {
+modal.onclick = function(event) {
   if (event.target == modal) {
-    modal.style.display = "none";
+    modal.style.display = 'none';
   }
 }
+
 </script>
+<script src="script.js"></script>
+
 
 
 </body>

@@ -144,12 +144,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </form>
     </div>
     </div>
-<!-- Footer -->
-<footer>
-  <p>Телефон: +7 (708) 379-31-01</p>
-  <p>Email: sharuevvv@gmail.com</p>
-  <p>Адрес: г. Алматы, ул. Жандосова 65</p>
-</footer>
+
 <script>
     // Получение модальных окон
 var loginModal = document.getElementById('loginModal');
@@ -188,6 +183,7 @@ window.onclick = function(event) {
 }
 </script>
 </body>
+
 </html>
 
 
