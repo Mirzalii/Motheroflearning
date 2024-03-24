@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 <!-- Навигационная панель -->
 <nav id="navbar">
-    <a href="index.html" id="logo"><img src="logo.png" alt="Логотип"></a>
+<a href="index.html" id="logo">Mother of Learning</a>
     <div id="menu">
        <a href="index.php">Главная страница</a>
       <a href="read.php">Начать читать</a>
