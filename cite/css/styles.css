@@ -66,27 +66,7 @@
   
 
 /* CSS */
-#titleContainer {
-    text-align: center;
-    margin-top: 20px; /* Отступ от слайдера */
-  }
-  
-  #mainTitle {
-    display: inline-block;
-    font-family: 'Times New Roman', Times, serif; /* Красивый шрифт */
-    color: #000000; /* Темный тон */
-    padding: 10px;
-    border: 2px solid #555; /* Рамка вокруг текста */
-    border-radius: 10px; /* Закругленные углы рамки */
-    background-color: rgba(0, 0, 0, 0.9); /* Небольшая прозрачность */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень для добавления глубины */
-  }
-  
-.mol {
-  color: #ffffff;
-  padding: 0;
-  margin: 0;
-}
+
 
 /* блок с описанием */
 #descriptionBlock {
@@ -160,8 +140,22 @@
 
 
 
-
-
+  #mainTitle {
+    display: inline-block;
+    font-family: 'Times New Roman', Times, serif; /* Красивый шрифт */
+    color: #000000; /* Темный тон */
+    padding: 10px;
+    border: 2px solid #555; /* Рамка вокруг текста */
+    border-radius: 10px; /* Закругленные углы рамки */
+    background-color: rgba(0, 0, 0, 0.9); /* Небольшая прозрачность */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень для добавления глубины */
+  }
+  
+.mol {
+  color: #ffffff;
+  padding: 0;
+  margin: 0;
+}
 
 
 
@@ -219,6 +213,29 @@
 }
   
 
+@media (max-width: 900px) {
+  .fanArtImages {
+    grid-template-columns: repeat(3, 1fr); /* 3 изображения в строке */
+    grid-auto-flow: column; /* Предотвращает перенос на новую строку */
+
+  }
+}
+
+@media (max-width: 700px) {
+  .fanArtImages {
+    grid-template-columns: repeat(2, 1fr); /* 2 изображения в строке */
+    grid-auto-flow: column; /* Предотвращает перенос на новую строку */
+
+  }
+}
+
+@media (max-width: 500px) {
+  .fanArtImages {
+    grid-template-columns: repeat(1, 1fr); /* 1 изображение в строке */
+    grid-auto-flow: column; /* Предотвращает перенос на новую строку */
+    overflow-x: auto; /* Добавляет горизонтальную прокрутку, если содержимое выходит за пределы */
+  }
+}
 
 
   
@@ -226,4 +243,72 @@
   
   /* Добавьте медиа-запросы для адаптивного дизайна */
   
+  @media (max-width: 600px) {
+    .slider {
+        height: 30vh; /* Уменьшение высоты слайдера */
+    }
+    .descriptionContent{
+      width: 100%;
+    }
+    .descriptionContent, .descriptionContent p {
+        padding: 0; /* Убираем отступы */
+        font-size: 0.8em; /* Уменьшаем размер шрифта */
+    }
+    .coverImage,
+    .readButton,
+    .readButton,
+    .ranobeInfo {
+      display: none; /* Скрываем информацию о ранобэ */
+  }
 
+  #mainTitle {
+      font-size: 1.5em; /* Уменьшаем размер заголовка */
+  }
+
+  .ranobeInfo {
+      display: none; /* Скрываем информацию о ранобэ */
+  }
+}
+
+/* Основные стили для изображений */
+img {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px; /* Отступ между изображениями */
+}
+
+/* Стили для контейнера, содержащего изображения */
+.fanArtImages {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); /* По умолчанию показываем все 8 изображений */
+  grid-gap: 10px;
+}
+
+/* Медиа запросы для адаптивного отображения */
+@media (max-width: 900px) {
+  .fanArtImages {
+
+      grid-template-columns: repeat(3, 1fr); /* 3 изображения в строке */
+  }
+  .fanArtImages img:nth-child(n+4) {
+      display: none; /* Скрываем изображения начиная с четвертого */
+  }
+}
+
+@media (max-width: 700px) {
+  .fanArtImages {
+      grid-template-columns: repeat(2, 1fr); /* 2 изображения в строке */
+  }
+  .fanArtImages img:nth-child(n+3) {
+      display: none; /* Скрываем изображения начиная с третьего */
+  }
+}
+
+@media (max-width: 500px) {
+  .fanArtImages {
+      grid-template-columns: repeat(1, 1fr); /* 1 изображение в строке */
+  }
+  .fanArtImages img:nth-child(n+2) {
+      display: none; /* Скрываем изображения начиная со второго */
+  }
+}

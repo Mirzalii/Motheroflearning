@@ -31,13 +31,13 @@ body {
 }
 
 /* Стиль для меню */
-#menu {
+#gl {
   display: flex;
   gap: 20px;
 }
 
 /* Стиль для ссылок меню */
-#menu a {
+#gl a {
   color: #fff;
   text-decoration: none;
   padding: 10px 20px;
@@ -47,7 +47,7 @@ body {
   transition: background-color 0.3s ease;
 }
 
-#menu a:hover {
+#gl a:hover {
   background-color: #555;
 }
 
@@ -73,24 +73,25 @@ body {
 }
 
 /* Стиль для ссылки профиля */
-#userProfileLink {
-  color: #fff;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
+ #userProfileLink {
+  color: inherit; /* Цвет текста такой же, как у остального текста в навигации */
+  background-color: transparent; /* Фон прозрачный */
 }
 
-/* Стиль для изображения профиля */
-#profilePicContainer img {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  margin-right: 10px;
+#profilePicContainer {
+  width: 30px; /* Установите фиксированный размер для изображения, чтобы оно было круглым */
+  height: 30px; /* Установите фиксированный размер для изображения, чтобы оно было круглым */
+  overflow: hidden; /* Скрывает части изображения, выходящие за пределы круга */
 }
 
-/* Стиль для имени пользователя */
+#userProfileLink img {
+  display: block; /* Убирает лишние отступы вокруг изображения */
+  width: 100%; /* Заставляет изображение заполнять контейнер */
+  height: auto; /* Поддерживает пропорции изображения */
+}
+
 #username {
-  margin-left: 10px;
+  font-size: 1em; /* Размер шрифта для имени пользователя */
 }
 
 
@@ -133,6 +134,10 @@ body {
   .modal-content h2{
     color: #fff;
   }
+  .modal-content p a{
+    color: #fff;
+    text-decoration: none;
+  }
   
   /* Стили для полей ввода */
   .modal-content input[type="text"],
@@ -166,27 +171,7 @@ body {
   
   
   
-  /* Добавьте этот CSS в ваш файл стилей */
-  #userProfileLink {
-    color: inherit; /* Цвет текста такой же, как у остального текста в навигации */
-    background-color: transparent; /* Фон прозрачный */
-  }
-  
-  #profilePicContainer {
-    width: 30px; /* Установите фиксированный размер для изображения, чтобы оно было круглым */
-    height: 30px; /* Установите фиксированный размер для изображения, чтобы оно было круглым */
-    overflow: hidden; /* Скрывает части изображения, выходящие за пределы круга */
-  }
-  
-  #userProfileLink img {
-    display: block; /* Убирает лишние отступы вокруг изображения */
-    width: 100%; /* Заставляет изображение заполнять контейнер */
-    height: auto; /* Поддерживает пропорции изображения */
-  }
-  
-  #username {
-    font-size: 1em; /* Размер шрифта для имени пользователя */
-  }
+ 
   
 
   footer {
@@ -195,8 +180,67 @@ body {
     text-align: center;
     background-color: rgba(0, 0, 0, 0.9); /* Небольшая прозрачность */
     margin-top: 20px;
-  
+    position: static;
+    left: 0;
+    bottom: 0;
+    width: 100%;
   }
 footer p{
     color: #fff;
   }
+
+
+  @media (min-width: 2560px) {
+    #profilePicContainer img,
+    #username {
+        transform: scale(1.3);
+    }
+}
+
+@media (min-width: 2560px) {
+  .modal,
+  .modal-content,
+  .modal-content input,
+  .modal-content label,
+  .modal-content h2,
+  .modal-content p a,
+  .modal-content input[type="text"],
+  .modal-content input[type="password"],
+  .modal-content input[type="email"],
+  .modal-content input[type="submit"] {
+      transform: scale(1.3);
+  }
+}
+
+  @media (max-width: 680px) {
+    #navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #logo {
+        margin-bottom: 10px;
+    }
+
+
+    #auth {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+  #gl{
+        flex-direction: row;
+        justify-content: center;
+  }
+    #aut a,
+    #loginBtn,
+    #registerBtn {
+        margin: 5px;
+        transform: scale(0.9);
+    }
+    #gl a{
+      margin: 5px;
+      transform: scale(0.9);
+  }
+}
+

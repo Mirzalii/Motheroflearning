@@ -70,9 +70,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!-- Навигационная панель -->
 <nav id="navbar">
 <a href="index.html" id="logo">Mother of Learning</a>
-    <div id="menu">
+<div id="menu">
+      <div class="gl">
        <a href="index.php">Главная страница</a>
       <a href="read.php">Начать читать</a>
+    </div>
     </div>
     <div id="auth">
     <?php if ($loggedIn): ?>
@@ -91,18 +93,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!-- Модальное окно входа -->
 <div id="loginModal" class="modal">
   <div class="modal-content">
-
     <h2>Вход</h2>
     <!-- Форма входа -->
     <form id="loginForm" method="post" action="login.php">
-    <p> <label for="loginUsername">Имя пользователя:</label></p> 
+      <p><label for="loginUsername">Имя пользователя:</label></p>
       <input type="text" id="loginUsername" name="username" required>
       <p><label for="loginPassword">Пароль:</label></p>
       <input type="password" id="loginPassword" name="password" required>
       <input type="submit" value="Войти">
+      <!-- Ссылка на страницу сброса пароля -->
+      <p><a href="reset/code.php">Забыли пароль?</a></p>
     </form>
   </div>
 </div>
+
 
 <!-- Модальное окно регистрации -->
 <div id="registerModal" class="modal">

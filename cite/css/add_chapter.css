@@ -1,56 +1,87 @@
-
 .add-chapter {
-    width: 50%;
-    margin: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
-    color: white;
+    width: 50%; /* Блок займет половину ширины экрана */
+    margin: auto; /* Блок будет автоматически центрироваться по горизонтали */
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+    padding: 20px; /* Внутренний отступ в 20 пикселей со всех сторон */
+    border-radius: 10px; /* Скругленные углы блока */
+    color: white; /* Белый цвет текста внутри блока */
+    margin-top: 50px;
 }
 
 .add-chapter h2 {
-    text-align: center;
-    margin-bottom: 20px;
+    text-align: center; /* Заголовок будет выровнен по центру */
+    margin-bottom: 20px; /* Отступ снизу после заголовка */
 }
 
 .add-chapter-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Выравнивание элементов по центру */
-    text-align: center;
+    display: flex; /* Содержимое блока будет в одном столбце */
+    flex-direction: column; /* Элементы будут идти друг за другом сверху вниз */
+    align-items: center; /* Все элементы будут выровнены по центру */
+    text-align: center; /* Текст будет выровнен по центру */
 }
 
 .add-chapter-content label {
-    font-size: 1.2em;
-    margin-bottom: 10px;
+    font-size: 1.2em; /* Размер шрифта меток будет на 20% больше обычного */
+    margin-bottom: 10px; /* Отступ снизу после каждой метки */
 }
 
 .add-chapter-content input[type="text"],
 .add-chapter-content textarea {
-    color: #fff;
-            width: 80%; /* Уменьшение ширины полей ввода */
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-            border-radius: 10px; /* Закругленные углы рамки */
-            background-color: rgba(0, 0, 0, 0.3); /* Небольшая прозрачность */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень для добавления глубины */
+    color: #fff; /* Цвет текста будет белым */
+    width: 80%; /* Ширина текстовых полей и области текста будет 80% от ширины блока */
+    padding: 12px 20px; /* Внутренний отступ в полях ввода */
+    margin: 8px 0; /* Вертикальный отступ между полями ввода */
+    display: inline-block; /* Элементы будут расположены на одной линии, если позволяет ширина */
+    border: 1px solid #ccc; /* Граница вокруг полей ввода серого цвета */
+    box-sizing: border-box; /* Размеры элементов будут включать padding и border */
+    border-radius: 10px; /* Скругленные углы у полей ввода */
+    background-color: rgba(0, 0, 0, 0.3); /* Полупрозрачный фон полей ввода */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень вокруг полей ввода для эффекта глубины */
 }
 
 .add-chapter-content input[type="submit"] {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    text-align: center;
-    right: 20px; /* Отступ справа */
-    bottom: 20px; /* Отступ снизу */
+    display: inline-block; /* Кнопка будет расположена на одной линии с другими элементами */
+    padding: 10px 20px; /* Внутренний отступ в кнопке */
+    background-color: #007BFF; /* Синий фон кнопки */
+    color: #fff; /* Белый цвет текста кнопки */
+    text-decoration: none; /* Убираем подчеркивание текста */
+    border-radius: 5px; /* Скругленные углы кнопки */
+    text-align: center; /* Текст в кнопке будет выровнен по центру */
+    right: 20px; /* Отступ справа для кнопки */
+    bottom: 20px; /* Отступ снизу для кнопки */
 }
 
 .add-chapter-content input[type="submit"]:hover {
-    background-color: #0056b3; 
+    background-color: #0056b3; /* Цвет фона кнопки при наведении станет темно-синим */
+}
+
+
+@media (min-width: 2560px) {
+    .add-chapter,
+    .add-chapter h2,
+    .add-chapter-content,
+    .add-chapter-content label,
+    .add-chapter-content input[type="text"],
+    .add-chapter-content textarea {
+        transform: scale(1.3);
+    }
+}
+@media (min-width: 2560px) {
+    .add-chapter {
+        height: 50vh;
+        margin-top: 250px; /* Или любое другое значение, которое подходит под ваш дизайн */
+    }
+}
+@media (min-width: 2560px) {
+.add-chapter h2 {
+    margin-top: 100px;
+}
+}
+@media (min-width: 2560px) {
+    .add-chapter-content,
+    .add-chapter-content label,
+    .add-chapter-content input[type="text"],
+    .add-chapter-content textarea {
+        margin: 40px;
+    }
 }

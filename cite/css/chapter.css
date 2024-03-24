@@ -1,38 +1,39 @@
-.chapter{
-    display: flex;
-    width: 88%;
-    margin: auto;
-    background-color: rgba(0, 0, 0, 0.9); /* Небольшая прозрачность */
-    border-radius: 15px; /* Закругленные края */
-    padding: 20px;
-    box-sizing: border-box;
-    align-items: flex-start; /* Выравнивание содержимого сверху */
-    overflow-wrap: break-word; /* Перенос слов, если они выходят за края блока */
+.chapter {
+    display: flex; /* Элементы внутри будут располагаться горизонтально */
+    width: 88%; /* Блок будет занимать 88% ширины родительского элемента */
+    margin: auto; /* Блок будет автоматически центрироваться по горизонтали */
+    background-color: rgba(0, 0, 0, 0.9); /* Почти непрозрачный черный фон */
+    border-radius: 15px; /* Скругленные углы блока */
+    padding: 20px; /* Отступы внутри блока со всех сторон */
+    box-sizing: border-box; /* Размеры блока включают в себя padding и border */
+    align-items: flex-start; /* Содержимое блока выравнивается по верхнему краю */
+    overflow-wrap: break-word; /* Если текст не помещается, он переносится на новую строку */
 }
 
 .chapter-content {
-    width: 88%;
-    padding-left: 20px;
-    color: #ffffff; /* Темные тона текста */
-    font-family: 'Georgia', serif; /* Красивый шрифт для описания */
-    
+    width: 88%; /* Ширина содержимого такая же, как у блока */
+    padding-left: 20px; /* Отступ слева внутри содержимого */
+    color: #ffffff; /* Цвет текста белый */
+    font-family: 'Georgia', serif; /* Шрифт с засечками для текста */
 }
+
 .chapter-text {
-   white-space: pre-wrap; /* Сохраняет пробелы и переносы строк, добавляет автоматический перенос строк */
-    word-break: break-word; /* Перенос слов, если они выходят за края блока */
+    white-space: pre-wrap; /* Пробелы и переносы строк сохраняются, текст переносится */
+    word-break: break-word; /* Слова переносятся, если не помещаются в строку */
 }
 
 .chapter a {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 10px;
-    color: #fff; /* Белый текст */
-    background-color: #007BFF; /* Синий фон */
-    border-radius: 5px; /* Закругленные края */
-    text-decoration: none; /* Убираем подчеркивание */
-    transition: background-color 0.3s ease; /* Плавный переход цвета фона */
+    display: inline-block; /* Ссылки будут вести себя как блочные элементы */
+    padding: 10px 20px; /* Отступы внутри ссылок */
+    margin: 10px; /* Отступы вокруг ссылок */
+    color: #fff; /* Цвет текста ссылок белый */
+    background-color: #007BFF; /* Фон ссылок синий */
+    border-radius: 5px; /* Скругленные углы у ссылок */
+    text-decoration: none; /* Убрано подчеркивание текста ссылок */
+    transition: background-color 0.3s ease; /* Плавное изменение цвета фона при наведении */
 }
 
 .chapter a:hover {
-    background-color: #0056b3; /* Темно-синий фон при наведении */
+    background-color: #0056b3; /* Цвет фона ссылок становится темно-синим при наведении */
 }
+

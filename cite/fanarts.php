@@ -30,29 +30,32 @@ if ($loggedIn) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Главная страница</title>
+<title>Фан Арты</title>
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/fanarts.css">
 </head>
 <body>
 <!-- Навигационная панель -->
 <nav id="navbar">
-    <a href="index.html" id="logo">Mother of Learning</a>
-    <div id="menu">
-       <a href="index.php">Главная страница</a>
+<a href="index.php" id="logo">Mother of Learning</a>
+<div id="menu">
+    <div id="gl">
+    <a href="index.php">Главная страница</a>
       <a href="read.php">Начать читать</a>
+    </div>
     </div>
     <div id="auth">
     <?php if ($loggedIn): ?>
-    <a href="profile.php" id="userProfileLink">
-      <div id="profilePicContainer" >
-        <img src="<?php echo $profilePic ?? 'img/slide1.jfif'; ?>" alt="Profile Picture" >
+    <a href="profile.php" id="userProfileLink" style="display: flex; align-items: center; width: 6%; height: 5%; text-decoration: none;">
+      <div id="profilePicContainer" style="flex-shrink: 0;">
+        <img src="<?php echo $profilePic ?? 'img/slide1.jfif'; ?>" alt="Profile Picture" style="width: 100%; height: auto; border-radius: 50%;">
       </div>
       <span id="username" style="margin-left: 10px;"><?php echo htmlspecialchars($username); ?></span>
     </a>
   <?php else: ?>
     <button id="loginBtn">Войти</button>
 <button id="registerBtn">Зарегистрироваться</button>
+
   <?php endif; ?>
   </div>
 </nav>
@@ -72,18 +75,20 @@ if ($loggedIn) {
 <!-- Модальное окно входа -->
 <div id="loginModal" class="modal">
   <div class="modal-content">
-
     <h2>Вход</h2>
     <!-- Форма входа -->
     <form id="loginForm" method="post" action="login.php">
-    <p> <label for="loginUsername">Имя пользователя:</label></p> 
+      <p><label for="loginUsername">Имя пользователя:</label></p>
       <input type="text" id="loginUsername" name="username" required>
       <p><label for="loginPassword">Пароль:</label></p>
       <input type="password" id="loginPassword" name="password" required>
       <input type="submit" value="Войти">
+      <!-- Ссылка на страницу сброса пароля -->
+      <p><a href="reset/code.php">Забыли пароль?</a></p>
     </form>
   </div>
 </div>
+
 
 <!-- Модальное окно регистрации -->
 <div id="registerModal" class="modal">

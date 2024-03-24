@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-image: url('img/fon3.jfif');
+    background-size: cover; /* Покрытие всего экрана изображением */
+    background-repeat: no-repeat; /* Без повторения изображения */
+    background-position: center center; /* Центрирование изображения */
+    text-decoration: none ;
+}
+.profile-edit {
+    width: 50%;
+    height: auto;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    background-color: rgba(0,0,0,0.7); 
+    position: relative; /* Добавляем относительное позиционирование для блока */
+}
+.profile-edit h1 {
+    margin: 0;
+    color: #fff;
+}
+.profile-edit label {
+    display: block;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.profile-edit input[type="text"],
+        .profile-edit input[type="email"],
+        .profile-edit input[type="password"] {
+            color: #fff;
+            width: 80%; /* Уменьшение ширины полей ввода */
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 10px; /* Закругленные углы рамки */
+            background-color: rgba(0, 0, 0, 0.3); /* Небольшая прозрачность */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень для добавления глубины */
+        }
+.profile-edit input[type="file"] {
+    display: none; /* Скрываем стандартное поле ввода файла */
+}
+.profile-edit button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+.profile-edit button:hover {
+    background-color: #45a049;
+}
+.butt{
+    margin: 10px;
+}
+.profile-edit input[type="submit"] {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    right: 20px; /* Отступ справа */
+    bottom: 20px; /* Отступ снизу */
+}
+.profile-edit input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+@media (min-width: 2560px) {
+
+    .profile-edit input[type="text"],
+    .profile-edit input[type="email"],
+    .profile-edit input[type="password"] {
+        transform: scaleY(1.5);
+        margin: 30px;
+    }
+    .profile-edit h1,
+    .profile-edit label{
+margin: 10px;
+transform: scale(1.5);
+    }
+    .profile-edit button,
+    .butt,
+    .profile-edit input[type="submit"]{
+        transform: scale(1.2);
+        margin: 20px;
+        
+    }
+}

@@ -50,6 +50,8 @@ $conn->close();
     <meta charset="UTF-8">
     <title>Профиль пользователя</title>
     <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/main.css">
+
 </head>
 <body>
     <div class="profile">

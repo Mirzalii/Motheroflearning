@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reset_code']) && isset
         exit;
     } else {
         logMessage("Неверный код восстановления для email: {$email} - код: {$reset_code}");
-        echo "Неверный код восстановления.";
+        echo "";
     }
 }
 ?>
@@ -39,8 +39,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reset_code']) && isset
 <head>
     <meta charset="UTF-8">
     <title>Ввод кода восстановления</title>
+    <link rel="stylesheet" href="reset.css">
 </head>
 <body>
+    <div class="cont">
     <h2>Введите код восстановления</h2>
     <form action="verify_code.php" method="post">
         <?php
@@ -52,5 +54,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reset_code']) && isset
         <input type="text" id="reset_code" name="reset_code" required>
         <button type="submit">Подтвердить код</button>
     </form>
+    </div>
 </body>
 </html>

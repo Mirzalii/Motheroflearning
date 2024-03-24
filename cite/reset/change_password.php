@@ -25,8 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['new_password'])) {
         // Обновление пароля в базе данных
         $stmt = $pdo->prepare("UPDATE users SET password = :new_password WHERE email = :email");
         $stmt->execute(['new_password' => $new_password_hashed, 'email' => $email]);
-
-        echo "Пароль успешно изменён.";
+        header("Location: ../index.php");
+        exit;
     } catch (PDOException $e) {
         die("Ошибка подключения к базе данных: " . $e->getMessage());
     }
@@ -38,8 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['new_password'])) {
 <head>
     <meta charset="UTF-8">
     <title>Смена пароля</title>
+    <link rel="stylesheet" href="reset.css">
 </head>
 <body>
+    <div class="cont">
     <h2>Смена пароля</h2>
     <form action="" method="post">
         <input type="hidden" name="email" value="<?php echo htmlspecialchars($email); ?>">
@@ -47,5 +49,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['new_password'])) {
         <input type="password" id="new_password" name="new_password" required>
         <button type="submit">Изменить пароль</button>
     </form>
+    </div>
 </body>
 </html>

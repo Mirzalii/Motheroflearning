@@ -55,13 +55,16 @@ $output = shell_exec($command);
 <head>
     <meta charset="UTF-8">
     <title>Восстановление пароля</title>
+    <link rel="stylesheet" href="reset.css">
 </head>
 <body>
+    <div class="cont">
     <h2>Форма запроса восстановления пароля</h2>
     <form action="code.php" method="post">
         <label for="email">Введите вашу электронную почту:</label>
         <input type="email" id="email" name="email" required>
         <button type="submit">Отправить код восстановления</button>
     </form>
+    </div>
 </body>
 </html>

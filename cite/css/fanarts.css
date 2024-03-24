@@ -133,3 +133,22 @@ p{
     margin: 20px;
     border-radius: 10px; /* Закругленные края для изображений */
   }
+
+  @media (max-width: 900px) {
+    .fanArtImages {
+      grid-template-columns: repeat(3, 1fr); /* 3 изображения в строке */
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .fanArtImages {
+      grid-template-columns: repeat(2, 1fr); /* 2 изображения в строке */
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .fanArtImages {
+      grid-template-columns: repeat(1, 1fr); /* 1 изображение в строке */
+    }
+  }
+  
