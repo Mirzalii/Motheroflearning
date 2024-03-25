@@ -165,6 +165,6 @@ modal.onclick = function(event) {
 }
 
 </script>
-<script src="script.js"></script>
+<script src="modal.js"></script>
 </body>
 </html>
