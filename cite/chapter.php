@@ -90,7 +90,7 @@ if ($loggedIn) {
   <div class="modal-content">
     <h2>Вход</h2>
     <!-- Форма входа -->
-    <form id="loginForm" method="post" action="login.php">
+    <form id="loginForm" method="post" action="logic/login.php">
       <p><label for="loginUsername">Имя пользователя:</label></p>
       <input type="text" id="loginUsername" name="username" required>
       <p><label for="loginPassword">Пароль:</label></p>
@@ -106,7 +106,7 @@ if ($loggedIn) {
   <div class="modal-content">
     <h2>Регистрация</h2>
     <!-- Форма регистрации -->
-    <form id="registerForm" method="post" action="register.php">
+    <form id="registerForm" method="post" action="logic/register.php">
     <label for="username"><p>Имя пользователя:</p> </label>
       <input type="text" id="username" name="username" required>
      <p><label for="password">Пароль:</label></p> 
