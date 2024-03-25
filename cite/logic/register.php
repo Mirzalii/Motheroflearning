@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Выполняем запрос и проверяем результат
     if ($db->query($query) === TRUE) {
-        echo     header('Location: index.php');
+        echo     header('Location: ../index.php');
         exit;
     } else {
         echo "Ошибка: " . $db->error;
