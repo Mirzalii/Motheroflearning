@@ -1,78 +1,119 @@
+/* Стили для основного контейнера страницы */
 body {
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: Arial, sans-serif;
-    background-image: url('img/fon3.jfif');
+    display: flex; /* Выравнивание содержимого по центру */
+    justify-content: center; /* Горизонтальное выравнивание */
+    align-items: center; /* Вертикальное выравнивание */
+    height: 100vh; /* Высота равна 100% видимой части экрана */
+    font-family: Arial, sans-serif; /* Шрифт Arial или sans-serif */
+    background-image: url('img/fon3.jfif'); /* Фоновое изображение */
     background-size: cover; /* Покрытие всего экрана изображением */
     background-repeat: no-repeat; /* Без повторения изображения */
     background-position: center center; /* Центрирование изображения */
-    text-decoration: none ;
-}
-.profile-edit {
-    width: 50%;
-    height: 65vh;
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-    background-color: rgba(0,0,0,0.7); 
-    position: relative; /* Добавляем относительное позиционирование для блока */
-}
-.profile-edit h1 {
-    margin: 0;
-    color: #fff;
-}
-.profile-edit label {
-    display: block;
-    color: #fff;
-    margin-top: 20px;
+    text-decoration: none; /* Без подчеркивания текста */
 }
 
+/* Стили для блока редактирования профиля */
+.profile-edit {
+    width: 50%; /* Ширина блока 50% от родительского элемента */
+    height: auto; /* Высота по содержимому */
+    text-align: center; /* Выравнивание текста по центру */
+    padding: 20px; /* Отступы внутри блока */
+    border-radius: 10px; /* Скругление углов */
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Тень блока */
+    background-color: rgba(0,0,0,0.7); /* Полупрозрачный черный фон */
+    position: relative; /* Относительное позиционирование для последующего позиционирования дочерних элементов */
+}
+
+/* Стили для заголовка в блоке редактирования профиля */
+.profile-edit h1 {
+    margin: 0; /* Без внешних отступов */
+    color: #fff; /* Белый цвет текста */
+}
+
+/* Стили для меток в блоке редактирования профиля */
+.profile-edit label {
+    display: block; /* Блочное отображение */
+    color: #fff; /* Белый цвет текста */
+    margin-top: 20px; /* Отступ сверху */
+}
+
+/* Стили для текстовых полей ввода */
 .profile-edit input[type="text"],
-        .profile-edit input[type="email"],
-        .profile-edit input[type="password"] {
-            color: #fff;
-            width: 80%; /* Уменьшение ширины полей ввода */
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-            border-radius: 10px; /* Закругленные углы рамки */
-            background-color: rgba(0, 0, 0, 0.3); /* Небольшая прозрачность */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень для добавления глубины */
-        }
+.profile-edit input[type="email"],
+.profile-edit input[type="password"] {
+    color: #fff; /* Белый цвет текста */
+    width: 80%; /* Ширина поля 80% от родительского элемента */
+    padding: 12px 20px; /* Внутренние отступы */
+    margin: 8px 0; /* Вертикальные внешние отступы */
+    display: inline-block; /* Встроенно-блочное отображение */
+    border: 1px solid #ccc; /* Граница вокруг поля */
+    box-sizing: border-box; /* Размеры включают в себя padding и border */
+    border-radius: 10px; /* Скругление углов */
+    background-color: rgba(0, 0, 0, 0.3); /* Полупрозрачный черный фон */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень для добавления глубины */
+}
+
+/* Стили для скрытого поля ввода файла */
 .profile-edit input[type="file"] {
-    display: none; /* Скрываем стандартное поле ввода файла */
+    display: none; /* Скрытие поля */
 }
+
+/* Стили для кнопок */
 .profile-edit button {
-    padding: 10px 15px;
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    cursor: pointer;
+    padding: 10px 15px; /* Внутренние отступы */
+    background-color: #4CAF50; /* Зеленый фон */
+    color: #fff; /* Белый цвет текста */
+    border: none; /* Без границ */
+    cursor: pointer; /* Курсор в виде указателя */
 }
+
+/* Стили для изменения фона кнопок при наведении */
 .profile-edit button:hover {
-    background-color: #45a049;
+    background-color: #45a049; /* Темно-зеленый фон при наведении */
 }
-.butt{
-    margin: 10px;
+
+/* Стили для дополнительного класса кнопок */
+.butt {
+    margin: 10px; /* Внешние отступы */
 }
+
+/* Стили для кнопки отправки */
 .profile-edit input[type="submit"] {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    text-align: center;
+    display: inline-block; /* Встроенно-блочное отображение */
+    padding: 10px 20px; /* Внутренние отступы */
+    background-color: #007BFF; /* Синий фон */
+    color: #fff; /* Белый цвет текста */
+    text-decoration: none; /* Без подчеркивания текста */
+    border-radius: 5px; /* Скругление углов */
+    text-align: center; /* Выравнивание текста по центру */
     right: 20px; /* Отступ справа */
     bottom: 20px; /* Отступ снизу */
 }
+
+/* Стили для изменения фона кнопки отправки при наведении */
 .profile-edit input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Темно-синий фон при наведении */
+}
+
+/* Медиа-запросы для больших экранов */
+@media (min-width: 2560px) {
+    .profile-edit input[type="text"],
+    .profile-edit input[type="email"],
+    .profile-edit input[type="password"] {
+        transform: scaleY(1.5); /* Увеличение высоты полей ввода */
+        margin: 30px; /* Внешние отступы */
+    }
+    .profile-edit h1,
+    .profile-edit label {
+        margin: 10px; /* Внешние отступы */
+        transform: scale(1.5); /* Увеличение размера текста */
+    }
+    .profile-edit button,
+    .butt,
+    .profile-edit input[type="submit"] {
+        transform: scale(1.2); /* Увеличение размера кнопок */
+        margin: 20px; /* Внешние отступы */
+    }
 }

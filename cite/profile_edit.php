@@ -1,6 +1,7 @@
 <?php
 session_start();
-require 'database.php'; // Подключите ваш файл database.php здесь
+// Подключаем файл конфигурации из папки logic
+require_once 'logic/database.php';
 
 // Проверка авторизации пользователя
 if (!isset($_SESSION['user_id'])) {
@@ -26,22 +27,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Файл успешно загружен, обновляем профиль пользователя
             $stmt = $pdo->prepare("UPDATE users SET profile_pic = ? WHERE id = ?");
             $stmt->execute([$uploadFile, $user_id]);
-
-
          
         } else {
             // Ошибка загрузки файла
             echo 'Произошла ошибка при загрузке файла.';
         }
     }
-
     // Обновление имени пользователя
     if (!empty($_POST['username'])) {
         $new_username = $_POST['username'];
         $stmt = $pdo->prepare("UPDATE users SET username = ? WHERE id = ?");
         $stmt->execute([$new_username, $user_id]);
-        
-
     }
 
     // Обновление электронной почты
@@ -57,7 +53,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt = $pdo->prepare("UPDATE users SET password = ? WHERE id = ?");
         $stmt->execute([$new_password, $user_id]);
     }
-
         session_destroy();
     
         // Перенаправление на страницу входа
@@ -65,15 +60,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Редактирование профиля</title>
-    <link rel="stylesheet" href="profile_edit.css">
- 
+    <link rel="stylesheet" href="css/profile_edit.css">
 </head>
 <body>
     <div class="profile-edit">
@@ -97,5 +89,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 </body>
 </html>
-
-

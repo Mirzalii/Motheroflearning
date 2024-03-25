@@ -1,13 +1,13 @@
 <?php
 session_start();
-require 'database.php'; // Подключите ваш файл database.php здесь
+// Подключаем файл конфигурации из папки logic
+require_once 'logic/database.php';
 
 // Проверка авторизации пользователя
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit;
 }
-
 // Обработка отправленной формы
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user_id = $_SESSION['user_id'];
@@ -53,14 +53,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo 'Произошла ошибка при загрузке файла.';
         }
     }
-
     // Перенаправление на страницу профиля
     header('Location: profile.php');
     exit;
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>

@@ -1,154 +1,167 @@
-/* Стили для кнопки */
+/* Стили для обертки кнопки загрузки */
 .upload-btn-wrapper {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-  }
+  position: relative; /* Относительное позиционирование для позиционирования вложенных элементов */
+  overflow: hidden; /* Скрывает части вложенного содержимого, выходящие за границы */
+  display: inline-block; /* Позволяет элементу быть в линии с другими элементами и задавать ширину/высоту */
+}
 
+/* Стили для кнопки */
+.btn {
+  border: 2px solid gray; /* Граница кнопки серого цвета толщиной 2 пикселя */
+  color: gray; /* Цвет текста кнопки серый */
+  background-color: white; /* Фон кнопки белый */
+  padding: 8px 20px; /* Внутренние отступы кнопки сверху/снизу 8 пикселей, слева/справа 20 пикселей */
+  border-radius: 8px; /* Скругление углов кнопки */
+  font-size: 20px; /* Размер шрифта текста в кнопке */
+  font-weight: bold; /* Жирное начертание текста */
+}
 
+/* Стили для скрытого поля ввода файла */
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px; /* Большой размер шрифта, чтобы увеличить область клика */
+  position: absolute; /* Абсолютное позиционирование для наложения на кнопку */
+  left: 0; /* Позиционирование в начале контейнера */
+  top: 0; /* Позиционирование в верхней части контейнера */
+  opacity: 0; /* Скрытие элемента, делая его прозрачным */
+}
 
-
-  .btn {
-    border: 2px solid gray;
-    color: gray;
-    background-color: white;
-    padding: 8px 20px;
-    border-radius: 8px;
-    font-size: 20px;
-    font-weight: bold;
-  }
-
-  .upload-btn-wrapper input[type=file] {
-    font-size: 100px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-  }
-
+/* Стили для модального окна */
 .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.4); 
+  display: none; /* Изначально модальное окно не отображается */
+  position: fixed; /* Фиксированное позиционирование относительно окна браузера */
+  z-index: 1; /* Уровень наложения выше других элементов */
+  left: 0; /* Позиционирование в начале по горизонтали */
+  top: 0; /* Позиционирование в начале по вертикали */
+  width: 100%; /* Ширина модального окна равна ширине окна браузера */
+  height: 100%; /* Высота модального окна равна высоте окна браузера */
+  overflow: auto; /* При необходимости добавляется прокрутка */
+  background-color: rgba(0,0,0,0.4); /* Полупрозрачный черный фон */
 }
 
-/* Стили для контента модального окна */
+/* Стили для содержимого модального окна */
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; 
-    padding: 20px;
-    border: 1px solid #888;
-    width: 30%; 
-    text-align: center; /* Выравнивание элементов по центру */
-    display: flex; /* Использование flexbox */
-    flex-direction: column; /* Расположение элементов в виде списка */
-    align-items: center; /* Выравнивание элементов по центру */
-    border-radius: 10px; /* Закругленные углы рамки */
-    background-color: rgba(0, 0, 0, 0.6); /* Небольшая прозрачность */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень для добавления глубины */
-}
-.modal-content input{
-  color: #fff;
-}
-.modal-content label{
-  color: #fff;
-}
-.modal-content h2{
-  color: #fff;
+  background-color: #fefefe; /* Фон содержимого белый */
+  margin: 15% auto; /* Вертикальные отступы и автоматическое горизонтальное центрирование */
+  padding: 20px; /* Внутренние отступы */
+  border: 1px solid #888; /* Граница вокруг содержимого */
+  width: 30%; /* Ширина содержимого */
+  text-align: center; /* Выравнивание текста по центру */
+  display: flex; /* Использование flexbox для внутреннего позиционирования */
+  flex-direction: column; /* Вертикальное направление элементов внутри flexbox */
+  align-items: center; /* Горизонтальное выравнивание элементов по центру */
+  border-radius: 10px; /* Скругление углов */
+  background-color: rgba(0, 0, 0, 0.6); /* Полупрозрачный черный фон */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень для создания эффекта глубины */
 }
 
+/* Стили для элементов ввода внутри модального окна */
+.modal-content input {
+  color: #fff; /* Цвет текста белый */
+}
+
+/* Стили для меток внутри модального окна */
+.modal-content label {
+  color: #fff; /* Цвет текста белый */
+}
+
+/* Стили для заголовков внутри модального окна */
+.modal-content h2 {
+  color: #fff; /* Цвет текста белый */
+}
+
+/* Стили для кнопки вызова модального окна */
 #myBtn {
-    background-color: #007bff; /* Синий цвет фона */
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition-duration: 0.4s; /* Плавное изменение */
-  }
-
-  #myBtn:hover {
-    background-color: #0056b3; /* Темно-синий цвет фона при наведении */
-    color: white;
-  }
-
-
-/* Стили для кнопки отправки */
-.modal-content input[type="submit"]
-
-{
-  display: inline-block;
-  margin: 10px 0;
-  padding: 10px 20px;
-  background-color: #007BFF;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
+  background-color: #007bff; /* Синий цвет фона */
+  border: none; /* Без границ */
+  color: white; /* Цвет текста белый */
+  padding: 10px 20px; /* Внутренние отступы */
+  text-align: center; /* Выравнивание текста по центру */
+  text-decoration: none; /* Без подчеркивания текста */
+  display: inline-block; /* В линии с другими элементами, с возможностью задать ширину/высоту */
+  font-size: 16px; /* Размер шрифта */
+  margin: 4px 2px; /* Внешние отступы */
+  cursor: pointer; /* Курсор в виде указателя */
+  border-radius: 5px; /* Скругление углов */
+  transition-duration: 0.4s; /* Длительность анимации при наведении */
 }
+
+/* Стили для изменения вида кнопки при наведении */
+#myBtn:hover {
+  background-color: #0056b3; /* Темно-синий цвет фона при наведении */
+}
+
+/* Стили для кнопки отправки внутри модального окна */
+.modal-content input[type="submit"] {
+  display: inline-block; /* В линии с другими элементами, с возможностью задать ширину/высоту */
+  margin: 10px 0; /* Внешние отступы сверху и снизу */
+  padding: 10px 20px; /* Внутренние отступы */
+  background-color: #007BFF; /* Синий цвет фона */
+  color: #fff; /* Цвет текста белый */
+  text-decoration: none; /* Без подчеркивания текста */
+  border-radius: 5px; /* Скругление углов */
+}
+
+/* Стили для изменения вида кнопки отправки при наведении */
 .modal-content input[type="submit"]:hover {
-  background-color: #0056b3;
-}
-p{
-    color: #fff;
+  background-color: #0056b3; /* Темно-синий цвет фона при наведении */
 }
 
- /* CSS */
- #fanArtBlock {
-    width: 88%;
-    margin: 20px auto;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.6); /* Небольшая прозрачность */
-    border-radius: 15px; /* Закругленные края */
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  
-  .fanArtTitle {
-    font-size: 2em;
-    color: #ddd;
-    margin-bottom: 20px;
-  }
-  
+/* Стили для параграфов */
+p {
+  color: #fff; /* Цвет текста белый */
+}
+
+/* Стили для блока с фан-артами */
+#fanArtBlock {
+  width: 88%; /* Ширина блока */
+  margin: 20px auto; /* Вертикальные отступы и автоматическое горизонтальное центрирование */
+  text-align: center; /* Выравнивание текста по центру */
+  background-color: rgba(0, 0, 0, 0.6); /* Полупрозрачный черный фон */
+  border-radius: 15px; /* Скругление углов */
+  padding: 20px; /* Внутренние отступы */
+  box-sizing: border-box; /* Размеры блока включают в себя padding и border */
+}
+
+/* Стили для заголовка блока с фан-артами */
+.fanArtTitle {
+  font-size: 2em; /* Увеличенный размер шрифта */
+  color: #ddd; /* Цвет текста светло-серый */
+  margin-bottom: 20px; /* Отступ снизу */
+}
+
+
+/* Основные стили для сетки изображений фан-артов */
+.fanArtImages {
+  margin-left: 3%; /* Отступ слева для всей сетки */
+  display: grid; /* Используем грид для выравнивания изображений */
+  grid-template-columns: repeat(4, 1fr); /* 4 колонки с равным распределением пространства */
+  grid-gap: 10px; /* Расстояние между элементами сетки */
+}
+
+/* Стили для каждого изображения в сетке */
+.fanArtImages img {
+  width: 70%; /* Ширина изображения составляет 70% от его контейнера */
+  margin: 20px; /* Отступы вокруг изображения */
+  border-radius: 10px; /* Скругленные углы изображения */
+}
+
+/* Адаптивные стили для экранов шириной до 900px */
+@media (max-width: 900px) {
   .fanArtImages {
-    margin-left: 3%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px; /* расстояние между изображениями */
+      grid-template-columns: repeat(3, 1fr); /* 3 колонки вместо 4 */
   }
-  
-  .fanArtImages img {
-    width: 70%;
-    margin: 20px;
-    border-radius: 10px; /* Закругленные края для изображений */
-  }
+}
 
-  @media (max-width: 900px) {
-    .fanArtImages {
-      grid-template-columns: repeat(3, 1fr); /* 3 изображения в строке */
-    }
+/* Адаптивные стили для экранов шириной до 700px */
+@media (max-width: 700px) {
+  .fanArtImages {
+      grid-template-columns: repeat(2, 1fr); /* 2 колонки вместо 3 */
   }
-  
-  @media (max-width: 700px) {
-    .fanArtImages {
-      grid-template-columns: repeat(2, 1fr); /* 2 изображения в строке */
-    }
+}
+
+/* Адаптивные стили для экранов шириной до 500px */
+@media (max-width: 500px) {
+  .fanArtImages {
+      grid-template-columns: repeat(1, 1fr); /* 1 колонка вместо 2 */
   }
-  
-  @media (max-width: 500px) {
-    .fanArtImages {
-      grid-template-columns: repeat(1, 1fr); /* 1 изображение в строке */
-    }
-  }
-  
+}

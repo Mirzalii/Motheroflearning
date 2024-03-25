@@ -1,9 +1,8 @@
-
-
 <?php
 session_start();
-require_once 'config.php';
-require_once 'database.php';
+// Подключаем файл конфигурации из папки logic
+require_once 'logic/config.php';
+require_once 'logic/database.php';
 // Проверяем, вошел ли пользователь в систему
 $loggedIn = isset($_SESSION['username']);
 
@@ -31,16 +30,13 @@ if ($loggedIn) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Главная страница</title>
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/mainpage.css">
 <link rel="stylesheet" href="css/main.css">
-
-
 </head>
 <body>
-
 <!-- Навигационная панель -->
 <nav id="navbar">
-<a href="index.html" id="logo">Mother of Learning</a>
+<a href="index.php" id="logo">Mother of Learning</a>
 <div id="menu">
     <div id="gl">
       <a href="read.php">Начать читать</a>
@@ -58,16 +54,9 @@ if ($loggedIn) {
   <?php else: ?>
     <button id="loginBtn">Войти</button>
 <button id="registerBtn">Зарегистрироваться</button>
-
   <?php endif; ?>
   </div>
 </nav>
-
-
-
-
-
-
 <!-- Модальное окно входа -->
 <div id="loginModal" class="modal">
   <div class="modal-content">
@@ -84,8 +73,6 @@ if ($loggedIn) {
     </form>
   </div>
 </div>
-
-
 <!-- Модальное окно регистрации -->
 <div id="registerModal" class="modal">
   <div class="modal-content">
@@ -103,32 +90,6 @@ if ($loggedIn) {
         </form>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
 <!-- HTML -->
 <div id="imageSlider" class="slider">
       <img src="img/slide1.png" alt="Slide 1" class="slide">
@@ -140,14 +101,10 @@ if ($loggedIn) {
     <a class="prev" onclick="moveSlide(-1)">❮</a>
     <a class="next" onclick="moveSlide(1)">❯</a>
   </div>
-  
   <!-- HTML -->
 <div id="titleContainer">
     <h1 id="mainTitle"><p class="mol">Mother of Learning</p></h1>
   </div>
-  
-
-
 <!-- Блок с описанием ранобэ -->
 <div id="descriptionBlock">
     <div class="coverImage">
@@ -193,9 +150,7 @@ if ($loggedIn) {
     </p>
   </div>
 </div>
-
 <!-- Блок с фан артами -->
-
 <div id="fanArtBlock">
   <h2 class="fanArtTitle">Фан Арты</h2>
   <div class="fanArtImages">
@@ -228,24 +183,15 @@ if ($result->num_rows > 0) {
 }
 $conn->close();
 ?>
-
   </div>
   <a href="fanarts.php" class="moreButton">Ещё ▼</a>
 </div>
-
-
-
-
-
 <!-- Footer -->
 <footer>
   <p>Телефон: +7 (708) 379-31-01</p>
   <p>Email: sharuevvv@gmail.com</p>
   <p>Адрес: г. Алматы, ул. Жандосова 65</p>
 </footer>
-
-
-
 <script>
 
 // JavaScript
@@ -282,50 +228,7 @@ document.getElementById('imageSlider').addEventListener('click', function(e) {
     plusSlides(1);
   }
 });
-
-
-
-
-
-
-
-
-
-// Получение модальных окон
-var loginModal = document.getElementById('loginModal');
-var registerModal = document.getElementById('registerModal');
-
-// Получение кнопок, которые открывают модальные окна
-var loginBtn = document.getElementById('loginBtn');
-var registerBtn = document.getElementById('registerBtn');
-
-
-
-// Открытие модального окна входа
-loginBtn.onclick = function() {
-  loginModal.style.display = 'block';
-}
-
-// Открытие модального окна регистрации
-registerBtn.onclick = function() {
-  registerModal.style.display = 'block';
-}
-
-// Закрытие модального окна при нажатии вне его области
-window.onclick = function(event) {
-  if (event.target == registerModal) {
-    loginModal.style.display = 'none';
-    registerModal.style.display = 'none';
-  }
-}
-
-// Закрытие модального окна при нажатии вне его области
-window.onclick = function(event) {
-  if (event.target == loginModal || event.target == registerModal) {
-    loginModal.style.display = 'none';
-    registerModal.style.display = 'none';
-  }
-}
 </script>
+<script src="modal.js"></script>
 </body>
 </html>

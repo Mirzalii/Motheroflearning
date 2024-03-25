@@ -1,6 +1,7 @@
 <?php
-// Подключаем файл конфигурации
-require_once 'config.php';
+// Подключаем файл конфигурации из папки logic
+require_once 'logic/config.php';
+
 
 // Начинаем сессию
 session_start();
@@ -69,11 +70,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 <!-- Навигационная панель -->
 <nav id="navbar">
-<a href="index.html" id="logo">Mother of Learning</a>
+<a href="index.php" id="logo">Mother of Learning</a>
 <div id="menu">
-      <div class="gl">
-       <a href="index.php">Главная страница</a>
-      <a href="read.php">Начать читать</a>
+    <div id="gl">
+      <a href="index.php">Главная страница</a>
+      <a href="fanarts.php">Фан арты</a>
     </div>
     </div>
     <div id="auth">
@@ -85,52 +86,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <span id="username" style="margin-left: 10px;"><?php echo htmlspecialchars($username); ?></span>
     </a>
   <?php else: ?>
-    <button id="loginBtn">Войти</button>
-<button id="registerBtn">Зарегистрироваться</button>
   <?php endif; ?>
   </div>
-</nav>
-<!-- Модальное окно входа -->
-<div id="loginModal" class="modal">
-  <div class="modal-content">
-    <h2>Вход</h2>
-    <!-- Форма входа -->
-    <form id="loginForm" method="post" action="login.php">
-      <p><label for="loginUsername">Имя пользователя:</label></p>
-      <input type="text" id="loginUsername" name="username" required>
-      <p><label for="loginPassword">Пароль:</label></p>
-      <input type="password" id="loginPassword" name="password" required>
-      <input type="submit" value="Войти">
-      <!-- Ссылка на страницу сброса пароля -->
-      <p><a href="reset/code.php">Забыли пароль?</a></p>
-    </form>
-  </div>
-</div>
-
-
-<!-- Модальное окно регистрации -->
-<div id="registerModal" class="modal">
-  <div class="modal-content">
-
-    <h2>Регистрация</h2>
-    <!-- Форма регистрации -->
-    <form id="registerForm" method="post" action="register.php">
-    <label for="username"><p>Имя пользователя:</p> </label>
-      <input type="text" id="username" name="username" required>
-     <p><label for="password">Пароль:</label></p> 
-      <input type="password" id="password" name="password" required>
-      <p><label for="email">Email:</label></p> 
-      <input type="email" id="email" name="email">
-      <input type="submit" value="Зарегистрироваться">
-        </form>
-  </div>
-</div>
-
-
-
-
-<div class="add-chapter">
-    
+</nav> 
+<!-- блок длбавления глав -->
+<div class="add-chapter">  
 <div class="add-chapter-content">
             <h2>Добавить главу</h2>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
@@ -148,44 +108,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </form>
     </div>
     </div>
-
-<script>
-    // Получение модальных окон
-var loginModal = document.getElementById('loginModal');
-var registerModal = document.getElementById('registerModal');
-
-// Получение кнопок, которые открывают модальные окна
-var loginBtn = document.getElementById('loginBtn');
-var registerBtn = document.getElementById('registerBtn');
-
-
-
-// Открытие модального окна входа
-loginBtn.onclick = function() {
-  loginModal.style.display = 'block';
-}
-
-// Открытие модального окна регистрации
-registerBtn.onclick = function() {
-  registerModal.style.display = 'block';
-}
-
-// Закрытие модального окна при нажатии вне его области
-window.onclick = function(event) {
-  if (event.target == registerModal) {
-    loginModal.style.display = 'none';
-    registerModal.style.display = 'none';
-  }
-}
-
-// Закрытие модального окна при нажатии вне его области
-window.onclick = function(event) {
-  if (event.target == loginModal || event.target == registerModal) {
-    loginModal.style.display = 'none';
-    registerModal.style.display = 'none';
-  }
-}
-</script>
 </body>
 
 </html>

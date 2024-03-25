@@ -1,7 +1,8 @@
 <?php
 session_start();
-require_once 'config.php';
-require_once 'database.php';
+// Подключаем файл конфигурации из папки logic
+require_once 'logic/config.php';
+require_once 'logic/database.php';
 // Проверяем, вошел ли пользователь в систему
 $loggedIn = isset($_SESSION['username']);
 
@@ -31,13 +32,11 @@ if ($loggedIn) {
     <title>Список глав</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/read.css">
- 
 </head>
 <body>
-
 <!-- Навигационная панель -->
 <nav id="navbar">
-<a href="index.html" id="logo">Mother of Learning</a>
+<a href="index.php" id="logo">Mother of Learning</a>
     <div id="menu">
     <div id="gl">
       <a href="index.php">Главная страница</a>
@@ -55,16 +54,9 @@ if ($loggedIn) {
   <?php else: ?>
     <button id="loginBtn">Войти</button>
 <button id="registerBtn">Зарегистрироваться</button>
-
   <?php endif; ?>
   </div>
 </nav>
-
-
-
-
-
-
 <!-- Модальное окно входа -->
 <div id="loginModal" class="modal">
   <div class="modal-content">
@@ -81,8 +73,6 @@ if ($loggedIn) {
     </form>
   </div>
 </div>
-
-
 <!-- Модальное окно регистрации -->
 <div id="registerModal" class="modal">
   <div class="modal-content">
@@ -100,11 +90,8 @@ if ($loggedIn) {
         </form>
   </div>
 </div>
-
-
 <div class="read">
 <div class="read-content">
-  
 <?php
 echo "<a href='chapter.php?id=1'>Начать читать</a>";
 if (isset($_COOKIE["last_read_chapter"])) {
@@ -112,13 +99,10 @@ if (isset($_COOKIE["last_read_chapter"])) {
   echo "<a href='chapter.php?id=".$_COOKIE["last_read_chapter"]."'>Продолжить читать</a>";
 }
 ?>
-
-
 <!-- Кнопка для добавления глав, доступная только администраторам -->
 <?php if ($isAdmin): ?>
     <a href="add_chapter.php">Добавить главу</a>
 <?php endif; ?>
-
 <?php
 // Получаем список глав из базы данных
 $sql = "SELECT * FROM chapters";
@@ -136,8 +120,6 @@ if ($result->num_rows > 0) {
 // Закрываем соединение
 mysqli_close($link);
 ?>
-
-
 </div>
 </div>
 <!-- Footer -->
@@ -146,42 +128,6 @@ mysqli_close($link);
   <p>Email: sharuevvv@gmail.com</p>
   <p>Адрес: г. Алматы, ул. Жандосова 65</p>
 </footer>
-<script>
-// Получение модальных окон
-var loginModal = document.getElementById('loginModal');
-var registerModal = document.getElementById('registerModal');
-
-// Получение кнопок, которые открывают модальные окна
-var loginBtn = document.getElementById('loginBtn');
-var registerBtn = document.getElementById('registerBtn');
-
-
-
-// Открытие модального окна входа
-loginBtn.onclick = function() {
-  loginModal.style.display = 'block';
-}
-
-// Открытие модального окна регистрации
-registerBtn.onclick = function() {
-  registerModal.style.display = 'block';
-}
-
-// Закрытие модального окна при нажатии вне его области
-window.onclick = function(event) {
-  if (event.target == registerModal) {
-    loginModal.style.display = 'none';
-    registerModal.style.display = 'none';
-  }
-}
-
-// Закрытие модального окна при нажатии вне его области
-window.onclick = function(event) {
-  if (event.target == loginModal || event.target == registerModal) {
-    loginModal.style.display = 'none';
-    registerModal.style.display = 'none';
-  }
-}
-</script>
+<script src="modal.js"></script>
 </body>
 </html>

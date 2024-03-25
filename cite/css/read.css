@@ -1,38 +1,43 @@
-.read{
-    display: flex;
-    width: 88%;
-    margin: auto;
-    background-color: rgba(0, 0, 0, 0.7); /* Небольшая прозрачность */
-    border-radius: 15px; /* Закругленные края */
-    padding: 20px;
-    box-sizing: border-box;
-    align-items: flex-start; /* Выравнивание содержимого сверху */
+/* Основные стили для блока чтения */
+.read {
+    display: flex; /* Используем flexbox для выравнивания элементов */
+    width: 88%; /* Ширина блока */
+    margin: auto; /* Автоматические отступы для центрирования */
+    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный фон */
+    border-radius: 15px; /* Скругленные углы */
+    padding: 20px; /* Внутренние отступы */
+    box-sizing: border-box; /* Размеры включают в себя padding и border */
+    align-items: flex-start; /* Выравнивание элементов сверху */
     overflow-wrap: break-word; /* Перенос слов, если они выходят за края блока */
 }
 
+/* Стили для контента внутри блока чтения */
 .read-content {
-    width: 88%;
-    padding-left: 20px;
-    color: #ffffff; /* Темные тона текста */
-    font-family: 'Georgia', serif; /* Красивый шрифт для описания */
-    
+    width: 88%; /* Ширина контента */
+    padding-left: 20px; /* Отступ слева */
+    color: #ffffff; /* Белый цвет текста */
+    font-family: 'Georgia', serif; /* Шрифт Georgia или serif */
 }
+
+/* Стили для текста в блоке чтения */
 .read-text {
-   white-space: pre-wrap; /* Сохраняет пробелы и переносы строк, добавляет автоматический перенос строк */
+    white-space: pre-wrap; /* Сохранение пробелов и переносов строк */
     word-break: break-word; /* Перенос слов, если они выходят за края блока */
 }
 
+/* Стили для ссылок в блоке чтения */
 .read a {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 10px;
-    color: #fff; /* Белый текст */
+    display: inline-block; /* Блочно-строчное отображение */
+    padding: 10px 20px; /* Внутренние отступы */
+    margin: 10px; /* Внешние отступы */
+    color: #fff; /* Белый цвет текста */
     background-color: #007BFF; /* Синий фон */
-    border-radius: 5px; /* Закругленные края */
-    text-decoration: none; /* Убираем подчеркивание */
+    border-radius: 5px; /* Скругленные углы */
+    text-decoration: none; /* Убираем подчеркивание текста */
     transition: background-color 0.3s ease; /* Плавный переход цвета фона */
 }
 
+/* Стили для изменения фона ссылок при наведении */
 .read a:hover {
     background-color: #0056b3; /* Темно-синий фон при наведении */
 }

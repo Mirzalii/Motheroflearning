@@ -60,7 +60,6 @@ if ($loggedIn) {
     <title>Mother of Learning</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/chapter.css">
- 
 </head>
 <body>
 <!-- Навигационная панель -->
@@ -86,7 +85,6 @@ if ($loggedIn) {
   <?php endif; ?>
   </div>
 </nav>
-
 <!-- Модальное окно входа -->
 <div id="loginModal" class="modal">
   <div class="modal-content">
@@ -103,12 +101,9 @@ if ($loggedIn) {
     </form>
   </div>
 </div>
-
-
 <!-- Модальное окно регистрации -->
 <div id="registerModal" class="modal">
   <div class="modal-content">
-
     <h2>Регистрация</h2>
     <!-- Форма регистрации -->
     <form id="registerForm" method="post" action="register.php">
@@ -122,16 +117,10 @@ if ($loggedIn) {
         </form>
   </div>
 </div>
-
-
-
-
+<!-- блок с текстом главы -->
 <div class="chapter">
 <div class="chapter-content">
 <?php
-
-
-
 // Подготавливаем SQL запрос
 $stmt = $conn->prepare("SELECT title, content FROM Chapters WHERE id=?");
 $stmt->bind_param("i", $id);
@@ -148,8 +137,7 @@ if ($result->num_rows > 0) {
   }
 } else {
     echo "0 results";
-  }
-  
+  } 
   // Кнопки для перехода к предыдущей и следующей главе
   if ($id > 1) {
     echo "<a href='chapter.php?id=".($id-1)."'>Предыдущая глава</a>";
@@ -157,12 +145,8 @@ if ($result->num_rows > 0) {
   echo " | ";
   echo "<a href='chapter.php?id=".($id+1)."'>Следующая глава</a>";
 }
-
-
-  
   $conn->close();
 ?>
-
 </div>
 </div>
 <!-- Footer -->
@@ -171,42 +155,6 @@ if ($result->num_rows > 0) {
   <p>Email: sharuevvv@gmail.com</p>
   <p>Адрес: г. Алматы, ул. Жандосова 65</p>
 </footer>
-<script>
-    // Получение модальных окон
-var loginModal = document.getElementById('loginModal');
-var registerModal = document.getElementById('registerModal');
-
-// Получение кнопок, которые открывают модальные окна
-var loginBtn = document.getElementById('loginBtn');
-var registerBtn = document.getElementById('registerBtn');
-
-
-
-// Открытие модального окна входа
-loginBtn.onclick = function() {
-  loginModal.style.display = 'block';
-}
-
-// Открытие модального окна регистрации
-registerBtn.onclick = function() {
-  registerModal.style.display = 'block';
-}
-
-// Закрытие модального окна при нажатии вне его области
-window.onclick = function(event) {
-  if (event.target == registerModal) {
-    loginModal.style.display = 'none';
-    registerModal.style.display = 'none';
-  }
-}
-
-// Закрытие модального окна при нажатии вне его области
-window.onclick = function(event) {
-  if (event.target == loginModal || event.target == registerModal) {
-    loginModal.style.display = 'none';
-    registerModal.style.display = 'none';
-  }
-}
-</script>
+<script src="modal.js"></script>
 </body>
 </html>

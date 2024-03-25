@@ -1,9 +1,8 @@
-
-
 <?php
 session_start();
-require_once 'config.php';
-require_once 'database.php';
+// Подключаем файл конфигурации из папки logic
+require_once 'logic/config.php';
+require_once 'logic/database.php';
 // Проверяем, вошел ли пользователь в систему
 $loggedIn = isset($_SESSION['username']);
 
@@ -55,11 +54,9 @@ if ($loggedIn) {
   <?php else: ?>
     <button id="loginBtn">Войти</button>
 <button id="registerBtn">Зарегистрироваться</button>
-
   <?php endif; ?>
   </div>
 </nav>
-
 <!-- Модальное окно -->
 <div id="myModal" class="modal">
       <!-- Контент модального окна -->
@@ -71,7 +68,6 @@ if ($loggedIn) {
         </form>
       </div>
     </div>
-
 <!-- Модальное окно входа -->
 <div id="loginModal" class="modal">
   <div class="modal-content">
@@ -88,8 +84,6 @@ if ($loggedIn) {
     </form>
   </div>
 </div>
-
-
 <!-- Модальное окно регистрации -->
 <div id="registerModal" class="modal">
   <div class="modal-content">
@@ -107,21 +101,12 @@ if ($loggedIn) {
         </form>
   </div>
 </div>
-
-
-
-
-
 <!-- Блок с фан артами -->
-
 <div id="fanArtBlock">
   <h2 class="fanArtTitle">Фан Арты</h2>
-  
-
   <?php if ($loggedIn): ?>
     <!-- Кнопка для открытия модального окна доступна только авторизированным пользователям -->
-    <button id="myBtn">Добавить</button>
-    
+    <button id="myBtn">Добавить</button> 
   <?php else: ?>
     <p>Для добавления изображений необходимо войти.</p>
   <?php endif; ?>
@@ -132,15 +117,12 @@ if ($loggedIn) {
  $username = "root";
  $password = "";
  $dbname = "mofl";
-
 // Создание соединения
 $conn = new mysqli($servername, $username, $password, $dbname);
-
 // Проверка соединения
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
 // SQL-запрос для выбора 8 случайных изображений
 $sql = "SELECT img FROM fanarts ORDER BY RAND() LIMIT 100";
 $result = $conn->query($sql);
@@ -155,23 +137,15 @@ if ($result->num_rows > 0) {
 }
 $conn->close();
 ?>
-
   </div>
 </div>
-
-
-
-
-
 <!-- Footer -->
 <footer>
   <p>Телефон: +7 (708) 379-31-01</p>
   <p>Email: sharuevvv@gmail.com</p>
   <p>Адрес: г. Алматы, ул. Жандосова 65</p>
 </footer>
-
 <script>
-
 var modal = document.getElementById("myModal");
 
 
@@ -183,7 +157,6 @@ btn.onclick = function() {
   modal.style.display = "block";
 }
 
-
 // Закрытие модального окна при нажатии вне его области
 modal.onclick = function(event) {
   if (event.target == modal) {
@@ -193,8 +166,5 @@ modal.onclick = function(event) {
 
 </script>
 <script src="script.js"></script>
-
-
-
 </body>
 </html>

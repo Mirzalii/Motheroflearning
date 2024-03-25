@@ -19,7 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Выполняем запрос и проверяем результат
     if ($db->query($query) === TRUE) {
-        echo "Регистрация прошла успешно!";
+        echo     header('Location: index.php');
+        exit;
     } else {
         echo "Ошибка: " . $db->error;
     }

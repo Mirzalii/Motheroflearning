@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 // Подключение к базе данных
 $host = 'localhost';
 $db = 'mofl';
@@ -58,26 +57,25 @@ $conn->close();
 
             <div>
             <img src="<?php echo htmlspecialchars($user['profile_pic']); ?>" alt="Фото профиля">  
-</div>
+            </div>
             <div>
             <h1><?php echo htmlspecialchars($user['username']); ?></h1>   
-</div>
+            </div>
             <div>
             <p><?php echo htmlspecialchars($user['email']); ?></p>
-</div>
+            </div>
             <div>
             <a href="profile_edit.php">Редактировать профиль</a>
-</div>
+            </div>
             <div>
             <a href="index.php">Главная страница</a>
-</div>
+            </div>
             <div>
         <!-- Форма выхода -->
         <form method="post">
         <input type="submit" name="logout" value="Выйти">
         </form>
 </div>
-
     </div>
 </body>
 </html>

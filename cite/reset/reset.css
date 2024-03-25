@@ -6,7 +6,7 @@ body {
     align-items: center;
     height: 100vh;
     font-family: Arial, sans-serif;
-    background-image: url('fon3.jfif');
+    background-image: url('../img/fon3.jfif');
     background-size: cover; /* Покрытие всего экрана изображением */
     background-repeat: no-repeat; /* Без повторения изображения */
     background-position: center center; /* Центрирование изображения */
