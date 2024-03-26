@@ -1,0 +1,247 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('img/fon3.jfif');
+  background-size: cover; /* Покрытие всего экрана изображением */
+  background-repeat: no-repeat; /* Без повторения изображения */
+  background-position: center center; /* Центрирование изображения */
+}
+
+  
+/* Общий стиль для навигационной панели */
+/* Общий стиль для навигационной панели */
+#navbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+background-color: rgba(0, 0, 0, 0.5);
+color: #fff;
+padding: 10px;
+font-family: 'Courier New', Courier, monospace;
+margin-bottom: 20px;
+}
+
+/* Стиль для логотипа */
+#logo {
+color: #fff;
+text-decoration: none;
+font-size: 24px;
+font-weight: bold;
+letter-spacing: 1px;
+}
+
+/* Стиль для меню */
+#gl {
+display: flex;
+gap: 20px;
+}
+
+/* Стиль для ссылок меню */
+#gl a {
+color: #fff;
+text-decoration: none;
+padding: 10px 20px;
+background-color: #000;
+border: 2px solid #1d1d1d;
+border-radius: 5px;
+transition: background-color 0.3s ease;
+}
+
+#gl a:hover {
+background-color: #555;
+}
+
+/* Стиль для блока авторизации */
+#auth {
+display: flex;
+gap: 20px;
+}
+
+/* Стиль для кнопок войти и зарегистрироваться */
+#loginBtn, #registerBtn {
+color: #fff;
+background-color: #000;
+border: 2px solid #fff;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+#loginBtn:hover, #registerBtn:hover {
+background-color: #555;
+}
+
+/* Стиль для ссылки профиля */
+#userProfileLink {
+color: inherit; /* Цвет текста такой же, как у остального текста в навигации */
+background-color: transparent; /* Фон прозрачный */
+}
+
+#profilePicContainer {
+width: 30px; /* Установите фиксированный размер для изображения, чтобы оно было круглым */
+height: 30px; /* Установите фиксированный размер для изображения, чтобы оно было круглым */
+overflow: hidden; /* Скрывает части изображения, выходящие за пределы круга */
+}
+
+#userProfileLink img {
+display: block; /* Убирает лишние отступы вокруг изображения */
+width: 100%; /* Заставляет изображение заполнять контейнер */
+height: auto; /* Поддерживает пропорции изображения */
+}
+
+#username {
+font-size: 1em; /* Размер шрифта для имени пользователя */
+}
+
+
+
+
+  
+  .modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+/* Стили для контента модального окна */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%; 
+    text-align: center; /* Выравнивание элементов по центру */
+    display: flex; /* Использование flexbox */
+    flex-direction: column; /* Расположение элементов в виде списка */
+    align-items: center; /* Выравнивание элементов по центру */
+    border-radius: 10px; /* Закругленные углы рамки */
+    background-color: rgba(0, 0, 0, 0.6); /* Небольшая прозрачность */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень для добавления глубины */
+}
+.modal-content input{
+  color: #fff;
+}
+.modal-content label{
+  color: #fff;
+}
+.modal-content h2{
+  color: #fff;
+}
+.modal-content p a{
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Стили для полей ввода */
+.modal-content input[type="text"],
+.modal-content input[type="password"],
+.modal-content input[type="email"]
+  {
+    width: 80%; /* Уменьшение ширины полей ввода */
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 10px; /* Закругленные углы рамки */
+    background-color: rgba(0, 0, 0, 0.3); /* Небольшая прозрачность */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень для добавления глубины */
+}
+
+/* Стили для кнопки отправки */
+.modal-content input[type="submit"] {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.modal-content input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
+
+footer {
+  background-color: #070707;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.9); /* Небольшая прозрачность */
+  margin-top: 20px;
+  position: static;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+footer p{
+  color: #fff;
+}
+
+
+@media (min-width: 2560px) {
+  #profilePicContainer img,
+  #username {
+      transform: scale(1.3);
+  }
+}
+
+@media (min-width: 2560px) {
+.modal,
+.modal-content,
+.modal-content input,
+.modal-content label,
+.modal-content h2,
+.modal-content p a,
+.modal-content input[type="text"],
+.modal-content input[type="password"],
+.modal-content input[type="email"],
+.modal-content input[type="submit"] {
+    transform: scale(1.3);
+}
+}
+
+@media (max-width: 680px) {
+  #navbar {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  #logo {
+      margin-bottom: 10px;
+  }
+
+
+  #auth {
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+  }
+#gl{
+      flex-direction: row;
+      justify-content: center;
+}
+  #aut a,
+  #loginBtn,
+  #registerBtn {
+      margin: 5px;
+      transform: scale(0.9);
+  }
+  #gl a{
+    margin: 5px;
+    transform: scale(0.9);
+}
+}
+
