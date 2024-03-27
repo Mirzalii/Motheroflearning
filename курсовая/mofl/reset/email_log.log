@@ -1,0 +1,12 @@
+ERROR:root:Ошибка при отправке письма: (554, b'5.7.1 Message rejected under suspicion of SPAM; https://ya.cc/1IrBc 1711277020-dhGpAxRoJ4Y0-EkQIKIKE')
+ERROR:root:Ошибка при отправке письма: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials q25-20020ac25299000000b00513a7b47c75sm646316lfm.93 - gsmtp')
+ERROR:root:Ошибка при отправке письма: (535, b'5.7.8 Error: authentication failed: This user does not have access rights to this service 1711278008-70HtvFOOi0U0')
+INFO:root:Письмо успешно отправлено на адрес: sharuevvv@gmail.com
+INFO:root:Письмо успешно отправлено на адрес: sharuevvv@gmail.com
+INFO:root:Письмо успешно отправлено на адрес: sharuevvv@gmail.com
+INFO:root:Письмо успешно отправлено на адрес: sharuevvv@gmail.com
+INFO:root:Письмо успешно отправлено на адрес: zorian@gmail.com
+INFO:root:Письмо успешно отправлено на адрес: zorian@gmail.com
+INFO:root:Письмо успешно отправлено на адрес: zorian@gmail.com
+INFO:root:Письмо успешно отправлено на адрес: zorian@gmail.com
+INFO:root:Письмо успешно отправлено на адрес: sharuevvv@gmail.com
